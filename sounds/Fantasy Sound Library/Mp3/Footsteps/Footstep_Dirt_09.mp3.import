@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d02axydlosh7"
+path="res://.godot/imported/Footstep_Dirt_09.mp3-d4eb830df3aca0dc883ab3b365992e5a.mp3str"
+
+[deps]
+
+source_file="res://sounds/Fantasy Sound Library/Mp3/Footsteps/Footstep_Dirt_09.mp3"
+dest_files=["res://.godot/imported/Footstep_Dirt_09.mp3-d4eb830df3aca0dc883ab3b365992e5a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
