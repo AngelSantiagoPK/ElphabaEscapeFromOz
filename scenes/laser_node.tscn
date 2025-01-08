@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://2gewv8oihb8d"]
+
+[ext_resource type="Script" path="res://scripts/laser_node.gd" id="1_gyh86"]
+[ext_resource type="Texture2D" uid="uid://ds315ec0tlh46" path="res://assets/projectiles.png" id="2_4wiu0"]
+[ext_resource type="Material" uid="uid://m14ct0cqnfw8" path="res://particles/laser_px.tres" id="3_y6cyq"]
+[ext_resource type="Texture2D" uid="uid://c44g5kkdd8s3b" path="res://assets/bubble.png" id="4_xvnxg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cuntb"]
+radius = 7.0
+
+[node name="LaserNode" type="Area2D"]
+script = ExtResource("1_gyh86")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.431373, 0.643137, 1)
+texture = ExtResource("2_4wiu0")
+region_enabled = true
+region_rect = Rect2(88, 32, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_cuntb")
+
+[node name="LaserGun" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(4, 0)
+
+[node name="LaserPX" type="GPUParticles2D" parent="."]
+position = Vector2(4, 0)
+amount = 4
+sub_emitter = NodePath(".")
+process_material = ExtResource("3_y6cyq")
+texture = ExtResource("4_xvnxg")
+lifetime = 2.0

@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://mdbnyygkwx8u"]
+
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="1_mf6ua"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_mf6ua")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="CollectibleTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+
+[node name="EnemyTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+
+[node name="FlyingEnemyTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+
+[node name="FenceTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+
+[node name="StageTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+autostart = true
+
+[connection signal="timeout" from="Timers/CollectibleTimer" to="." method="_on_collectible_timer_timeout"]
+[connection signal="timeout" from="Timers/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
+[connection signal="timeout" from="Timers/FlyingEnemyTimer" to="." method="_on_flying_enemy_timer_timeout"]
+[connection signal="timeout" from="Timers/FenceTimer" to="." method="_on_fence_timer_timeout"]
+[connection signal="timeout" from="Timers/StageTimer" to="." method="_on_stage_timer_timeout"]

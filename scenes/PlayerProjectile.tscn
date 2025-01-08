@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://bog86tu65obmn"]
+
+[ext_resource type="Script" path="res://scripts/player_projectile.gd" id="1_5iexh"]
+[ext_resource type="Texture2D" uid="uid://ds315ec0tlh46" path="res://assets/projectiles.png" id="2_po0fs"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hd7ak"]
+blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcefe"]
+size = Vector2(8, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cwo0"]
+size = Vector2(10, 5)
+
+[node name="PlayerProjectile" type="CharacterBody2D"]
+z_index = -1
+script = ExtResource("1_5iexh")
+acceleration = 800.0
+top_speed = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+material = SubResource("CanvasItemMaterial_hd7ak")
+texture = ExtResource("2_po0fs")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(40, 47, 32, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_jcefe")
+disabled = true
+
+[node name="LifetimeTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_3cwo0")
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]

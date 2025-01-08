@@ -1,0 +1,158 @@
+[gd_scene load_steps=16 format=3 uid="uid://dly784j7texob"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_heffq"]
+[ext_resource type="Texture2D" uid="uid://iyvi67ymcq7k" path="res://assets/Witch.png" id="2_i3p2r"]
+[ext_resource type="Material" uid="uid://dmxyyhfxg8ia0" path="res://particles/spaceman_px.tres" id="3_gfxfc"]
+[ext_resource type="AudioStream" uid="uid://d03hcb782py6n" path="res://assets/jetpack.wav" id="4_oen88"]
+[ext_resource type="AudioStream" uid="uid://cg31fqvoxs1vx" path="res://sounds/Game/Voice1.wav" id="5_lkhxw"]
+[ext_resource type="Texture2D" uid="uid://dpywufcs4yjiq" path="res://assets/Witch_Falling.png" id="6_6kbfq"]
+[ext_resource type="PackedScene" uid="uid://ucocyvri64wq" path="res://scenes/ShadowCast.tscn" id="7_acqvn"]
+[ext_resource type="PackedScene" uid="uid://d2bxgwg4vt8bt" path="res://scenes/wand.tscn" id="8_voi8d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_881jb"]
+radius = 3.5
+height = 14.0
+
+[sub_resource type="Gradient" id="Gradient_urrvr"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hmd45"]
+gradient = SubResource("Gradient_urrvr")
+width = 2
+height = 2
+fill = 1
+fill_from = Vector2(0.557339, 0.490826)
+
+[sub_resource type="Animation" id="Animation_kecgn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_i3p2r")]
+}
+
+[sub_resource type="Animation" id="Animation_itd45"]
+resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_6kbfq")]
+}
+
+[sub_resource type="Animation" id="Animation_rtt3l"]
+resource_name = "rise"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0872665]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_i3p2r")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_65fbw"]
+_data = {
+"RESET": SubResource("Animation_kecgn"),
+"fall": SubResource("Animation_itd45"),
+"rise": SubResource("Animation_rtt3l")
+}
+
+[node name="Player" type="CharacterBody2D" groups=["Player", "Spaceman"]]
+script = ExtResource("1_heffq")
+jump_force = 400.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i3p2r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_881jb")
+
+[node name="PlayerPX" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-15, 5)
+rotation = 3.14159
+emitting = false
+amount = 10
+sub_emitter = NodePath(".")
+process_material = ExtResource("3_gfxfc")
+texture = SubResource("GradientTexture2D_hmd45")
+lifetime = 0.2
+explosiveness = 0.05
+
+[node name="FlightAudio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_oen88")
+bus = &"SoundFX"
+
+[node name="PlayerAudio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_lkhxw")
+bus = &"SoundFX"
+
+[node name="FlyAnimator" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_65fbw")
+}
+
+[node name="ShadowCast" parent="." instance=ExtResource("7_acqvn")]
+
+[node name="Wand" parent="." instance=ExtResource("8_voi8d")]
+unique_name_in_owner = true
+rate_delay = 0.2

@@ -1,0 +1,104 @@
+[gd_scene load_steps=11 format=3 uid="uid://cpqefwco7fomh"]
+
+[ext_resource type="Script" path="res://scripts/flying_enemy.gd" id="1_5u7qp"]
+[ext_resource type="Texture2D" uid="uid://cm5trfta55ghp" path="res://assets/WingedMonkey.png" id="2_8dvkk"]
+[ext_resource type="AudioStream" uid="uid://xogb71ws2qbk" path="res://sounds/Fantasy Sound Library/Wav/Spell_00.wav" id="3_o8e0a"]
+[ext_resource type="PackedScene" uid="uid://ucocyvri64wq" path="res://scenes/ShadowCast.tscn" id="4_8tfhq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j1gj3"]
+radius = 6.5192
+
+[sub_resource type="Animation" id="Animation_xwuxk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pca0b"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bxg8w"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h1ccq"]
+_data = {
+"RESET": SubResource("Animation_xwuxk"),
+"hit": SubResource("Animation_pca0b"),
+"walk": SubResource("Animation_bxg8w")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uhmrp"]
+radius = 4.03113
+
+[node name="FlyingEnemy" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_5u7qp")
+projectile_delay = 5.0
+score_value = 50
+top_speed = 68.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8dvkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_j1gj3")
+
+[node name="UFOProjectileTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="HitAudio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -3)
+stream = ExtResource("3_o8e0a")
+bus = &"SoundFX"
+
+[node name="ShadowCast" parent="." instance=ExtResource("4_8tfhq")]
+
+[node name="HitAnimator" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_h1ccq")
+}
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_h1ccq")
+}
+
+[node name="EnemyCollision" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 6)
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyCollision"]
+position = Vector2(-0.5, -3.5)
+shape = SubResource("CircleShape2D_uhmrp")
+
+[connection signal="timeout" from="UFOProjectileTimer" to="." method="_on_ufo_projectile_timer_timeout"]
+[connection signal="body_entered" from="EnemyCollision" to="." method="_on_enemy_collision_body_entered"]

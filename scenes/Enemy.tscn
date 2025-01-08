@@ -1,0 +1,100 @@
+[gd_scene load_steps=11 format=3 uid="uid://q2q6jah3nxnt"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_o5co6"]
+[ext_resource type="Texture2D" uid="uid://by6a2iqfiur81" path="res://assets/WakingMonkey.png" id="2_uusjk"]
+[ext_resource type="AudioStream" uid="uid://c21tgwqj65sui" path="res://sounds/Game/Kill.wav" id="3_ly1sm"]
+[ext_resource type="PackedScene" uid="uid://ucocyvri64wq" path="res://scenes/ShadowCast.tscn" id="4_2bnyq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_881jb"]
+radius = 3.5
+height = 12.0
+
+[sub_resource type="Animation" id="Animation_xwuxk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pca0b"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bxg8w"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h1ccq"]
+_data = {
+"RESET": SubResource("Animation_xwuxk"),
+"hit": SubResource("Animation_pca0b"),
+"walk": SubResource("Animation_bxg8w")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymuc0"]
+size = Vector2(10.5, 8.5)
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+z_index = 2
+position = Vector2(0, -13)
+script = ExtResource("1_o5co6")
+top_speed = 60.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 6)
+texture = ExtResource("2_uusjk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 3)
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_881jb")
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_h1ccq")
+}
+
+[node name="HitAnimator" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_h1ccq")
+}
+
+[node name="HitAudio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_ly1sm")
+bus = &"SoundFX"
+
+[node name="EnemyCollision" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 6)
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyCollision"]
+position = Vector2(-2.25, -1.75)
+shape = SubResource("RectangleShape2D_ymuc0")
+
+[node name="ShadowCast" parent="." instance=ExtResource("4_2bnyq")]
+
+[connection signal="body_entered" from="EnemyCollision" to="." method="_on_enemy_collision_body_entered"]

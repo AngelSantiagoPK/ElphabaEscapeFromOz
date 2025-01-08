@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2bxgwg4vt8bt"]
+
+[ext_resource type="Script" path="res://scripts/wand.gd" id="1_bqgpb"]
+
+[node name="Wand" type="Node2D"]
+script = ExtResource("1_bqgpb")
+
+[node name="RateTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="WandAudio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="RateTimer" to="." method="_on_rate_timer_timeout"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6plifmxmk7gt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hepc5"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7iwa"]
+size = Vector2(582, 20)
+
+[sub_resource type="Gradient" id="Gradient_u31t3"]
+colors = PackedColorArray(0.370319, 0.369794, 0.521916, 1, 0.567141, 0.941759, 0.659997, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ylpw6"]
+gradient = SubResource("Gradient_u31t3")
+width = 600
+height = 20
+fill_from = Vector2(0.548165, 1)
+fill_to = Vector2(0.543578, 0)
+
+[node name="Wall" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_hepc5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_d7iwa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -1)
+scale = Vector2(1, 1.1)
+texture = SubResource("GradientTexture2D_ylpw6")

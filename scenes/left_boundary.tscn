@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmc3ohxihgmc7"]
+
+[ext_resource type="Script" path="res://scripts/boundary.gd" id="1_yv1ar"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gqv5a"]
+b = Vector2(2, 649)
+
+[node name="LeftBoundary" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_gqv5a")
+script = ExtResource("1_yv1ar")

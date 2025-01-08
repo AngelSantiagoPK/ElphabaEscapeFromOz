@@ -1,0 +1,182 @@
+[gd_scene load_steps=17 format=3 uid="uid://db3oe4ww2id52"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_6qkl8"]
+[ext_resource type="PackedScene" uid="uid://dly784j7texob" path="res://scenes/Player.tscn" id="1_rpfxv"]
+[ext_resource type="PackedScene" uid="uid://bmc3ohxihgmc7" path="res://scenes/left_boundary.tscn" id="4_7ov4u"]
+[ext_resource type="PackedScene" uid="uid://b6plifmxmk7gt" path="res://scenes/Wall.tscn" id="6_0y6fy"]
+[ext_resource type="Texture2D" uid="uid://ddb661l0fvapy" path="res://assets/Emerald City.png" id="6_ib32n"]
+[ext_resource type="Texture2D" uid="uid://cchjkwgyb2xj5" path="res://assets/Skybox.png" id="9_nuy01"]
+[ext_resource type="Script" path="res://scripts/parallax_motion.gd" id="10_7x6hh"]
+[ext_resource type="Texture2D" uid="uid://d3xwnctul0ble" path="res://assets/Mountain.png" id="12_i273c"]
+[ext_resource type="Texture2D" uid="uid://dq0uwdxc8o3aq" path="res://assets/Trees.png" id="13_ijyjj"]
+[ext_resource type="Texture2D" uid="uid://cnrhgk2juqua7" path="res://assets/Road.png" id="14_l52wm"]
+[ext_resource type="FontFile" uid="uid://dyni14hwwignh" path="res://assets/fonts/Free_Pixel_Font_Devilsworkshop_v01/ThickThinPixel.ttf" id="15_0sl5u"]
+[ext_resource type="AudioStream" uid="uid://r2x3u1lvognn" path="res://sounds/WInd/wind1.wav" id="15_a7pq3"]
+[ext_resource type="AudioStream" uid="uid://duihpqja36b7" path="res://sounds/Wicked - Defying Gravity - 8 Bit.mp3" id="15_oklkd"]
+[ext_resource type="PackedScene" uid="uid://mdbnyygkwx8u" path="res://scenes/Spawner.tscn" id="17_axwok"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnvfo"]
+size = Vector2(640, 360)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwdtb"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 4
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(1, 0.098893, 0.999002, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 20
+expand_margin_left = 12.0
+expand_margin_top = 4.0
+expand_margin_right = 12.0
+expand_margin_bottom = 4.0
+anti_aliasing = false
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_6qkl8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D"]
+shape = SubResource("RectangleShape2D_rnvfo")
+action = "ui_up"
+
+[node name="Player" parent="." instance=ExtResource("1_rpfxv")]
+unique_name_in_owner = true
+position = Vector2(-174, 111)
+
+[node name="LeftBoundary" parent="." instance=ExtResource("4_7ov4u")]
+unique_name_in_owner = true
+position = Vector2(-497, -305)
+
+[node name="Wall" parent="." instance=ExtResource("6_0y6fy")]
+visible = false
+position = Vector2(346, 133)
+scale = Vector2(2.92, 1)
+
+[node name="Wall2" parent="." instance=ExtResource("6_0y6fy")]
+visible = false
+position = Vector2(351, -127)
+scale = Vector2(2.92, 1)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+custom_minimum_size = Vector2(640, 55)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_right = 320.0
+offset_bottom = 60.0
+grow_horizontal = 2
+size_flags_vertical = 0
+color = Color(0.980392, 0.992157, 0.188235, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+
+[node name="ScoreLabel" type="Label" parent="UI/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("15_0sl5u")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_xwdtb")
+text = "press up to shoot"
+
+[node name="HiScoreLabel" type="Label" parent="UI/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("15_0sl5u")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_xwdtb")
+text = "HI-SCORE: 0"
+
+[node name="ScoreTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("15_oklkd")
+autoplay = true
+bus = &"Music"
+playback_type = 1
+parameters/looping = true
+
+[node name="WindSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_a7pq3")
+volume_db = 1.0
+autoplay = true
+
+[node name="MovingBG" type="ParallaxBackground" parent="."]
+
+[node name="SkyLayer" type="ParallaxLayer" parent="MovingBG"]
+motion_offset = Vector2(0, -180)
+motion_mirroring = Vector2(640, 0)
+script = ExtResource("10_7x6hh")
+speed = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="MovingBG/SkyLayer"]
+texture = ExtResource("9_nuy01")
+centered = false
+
+[node name="CrystalCityLayer" type="ParallaxLayer" parent="MovingBG"]
+motion_offset = Vector2(0, -320)
+motion_mirroring = Vector2(640, 0)
+script = ExtResource("10_7x6hh")
+speed = 6.0
+
+[node name="Sprite2D" type="Sprite2D" parent="MovingBG/CrystalCityLayer"]
+texture = ExtResource("6_ib32n")
+centered = false
+
+[node name="MountainLayer" type="ParallaxLayer" parent="MovingBG"]
+motion_offset = Vector2(0, -156)
+motion_mirroring = Vector2(640, 0)
+script = ExtResource("10_7x6hh")
+
+[node name="Sprite2D" type="Sprite2D" parent="MovingBG/MountainLayer"]
+texture = ExtResource("12_i273c")
+centered = false
+
+[node name="ForestLayer" type="ParallaxLayer" parent="MovingBG"]
+motion_offset = Vector2(0, -180)
+motion_mirroring = Vector2(640, 0)
+script = ExtResource("10_7x6hh")
+speed = 60.0
+
+[node name="Sprite2D" type="Sprite2D" parent="MovingBG/ForestLayer"]
+texture = ExtResource("13_ijyjj")
+centered = false
+
+[node name="RoadLayer" type="ParallaxLayer" parent="MovingBG"]
+motion_offset = Vector2(0, -180)
+motion_mirroring = Vector2(640, 0)
+script = ExtResource("10_7x6hh")
+speed = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="MovingBG/RoadLayer"]
+texture = ExtResource("14_l52wm")
+centered = false
+
+[node name="Spawner" parent="." instance=ExtResource("17_axwok")]
+
+[connection signal="area_entered" from="LeftBoundary" to="." method="_on_left_boundary_area_entered"]
+[connection signal="body_entered" from="LeftBoundary" to="." method="_on_left_boundary_body_entered"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

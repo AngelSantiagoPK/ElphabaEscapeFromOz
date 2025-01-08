@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ywbdmh0ckoba"]
+
+[ext_resource type="Script" path="res://scripts/bullethole.gd" id="1_bredj"]
+[ext_resource type="Material" uid="uid://dqplyjn3dte5d" path="res://particles/alien_corpse_px.tres" id="2_ka3a3"]
+
+[node name="ProjectileEffect" type="Node2D"]
+script = ExtResource("1_bredj")
+
+[node name="BulletFX" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 6
+sub_emitter = NodePath(".")
+process_material = ExtResource("2_ka3a3")
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0

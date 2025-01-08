@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2jfiqpv1nu4a"]
+
+[ext_resource type="Script" path="res://scripts/laser_fence.gd" id="1_fkwtj"]
+[ext_resource type="PackedScene" uid="uid://2gewv8oihb8d" path="res://scenes/laser_node.tscn" id="2_bv58x"]
+
+[sub_resource type="Gradient" id="Gradient_5a1di"]
+offsets = PackedFloat32Array(0, 0.556667, 1)
+colors = PackedColorArray(0.900526, 0.900526, 0.900526, 1, 0.51, 0.51, 0.51, 1, 1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ejory"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_eh708"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserLine:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vulvo"]
+resource_name = "laser_pulse"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserLine:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.184314, 0.686275, 1), Color(1, 1, 1, 1), Color(1, 0.184314, 0.686275, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_71l0o"]
+_data = {
+"RESET": SubResource("Animation_eh708"),
+"laser_pulse": SubResource("Animation_vulvo")
+}
+
+[node name="Fence" type="Node2D" node_paths=PackedStringArray("NODES") groups=["Laser"]]
+z_index = 2
+script = ExtResource("1_fkwtj")
+speed = 50.0
+top_limit = -100
+max_fence_length = 150
+min_fence_length = 100
+NODES = [NodePath("LaserNode1"), NodePath("LaserNode2")]
+
+[node name="LaserNode1" parent="." instance=ExtResource("2_bv58x")]
+
+[node name="LaserNode2" parent="." instance=ExtResource("2_bv58x")]
+
+[node name="LaserLine" type="Line2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+width = 4.0
+gradient = SubResource("Gradient_5a1di")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="LaserRay" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(200, 0)
+collide_with_areas = true
+
+[node name="CollisionArea" type="Area2D" parent="." groups=["Laser"]]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+shape = SubResource("CircleShape2D_ejory")
+
+[node name="LaserAnimator" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_71l0o")
+}
+autoplay = "laser_pulse"

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ucocyvri64wq"]
+
+[ext_resource type="Texture2D" uid="uid://cb183l0cqdh1d" path="res://assets/Shadow.png" id="1_aw47p"]
+[ext_resource type="Script" path="res://scripts/shadow_cast.gd" id="1_qdiju"]
+
+[node name="ShadowCast" type="Node2D"]
+script = ExtResource("1_qdiju")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 2000)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.25098)
+texture = ExtResource("1_aw47p")
