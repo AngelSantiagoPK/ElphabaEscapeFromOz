@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://duihpqja36b7"
+path="res://.godot/imported/Wicked - Defying Gravity - 8 Bit.mp3-f76e50b18021d069aea1501e0cdcff27.mp3str"
+
+[deps]
+
+source_file="res://sounds/Wicked - Defying Gravity - 8 Bit.mp3"
+dest_files=["res://.godot/imported/Wicked - Defying Gravity - 8 Bit.mp3-f76e50b18021d069aea1501e0cdcff27.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

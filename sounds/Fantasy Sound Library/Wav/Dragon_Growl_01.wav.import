@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b5hu5cu5p8bt1"
+path="res://.godot/imported/Dragon_Growl_01.wav-e24607fcd4e8bcbab74ee00d2795d0e4.sample"
+
+[deps]
+
+source_file="res://sounds/Fantasy Sound Library/Wav/Dragon_Growl_01.wav"
+dest_files=["res://.godot/imported/Dragon_Growl_01.wav-e24607fcd4e8bcbab74ee00d2795d0e4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
