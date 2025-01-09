@@ -15,8 +15,11 @@ func _ready() -> void:
 	lifetime_timer.start()
 	lifetime_timer.timeout.connect(func(): queue_free())
 
-func set_direction(bullet_direction: Vector2):
+func set_direction(bullet_direction: Vector2) -> void:
 	self.direction = bullet_direction
+
+func set_top_speed(speed: float) -> void:
+	self.top_speed = speed
 
 func _physics_process(delta: float) -> void:
 	velocity += direction * acceleration * delta

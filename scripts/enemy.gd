@@ -26,10 +26,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func hit():
+	# Sound and Effects
+	var rand_pitch: float = randf_range(0.8, 1.2)
+	hit_audio.pitch_scale = rand_pitch
 	hit_animator.play("hit")
-	const HIT: AudioStream = preload("res://sounds/Game/Kill.wav")
-	hit_audio.stream = HIT
 	hit_audio.play()
+	
+	# Logic
 	current_hp -= 1
 	if current_hp <= 0:
 		killed.emit()
@@ -45,4 +48,5 @@ func kill():
 
 func _on_enemy_collision_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		hit_audio.play()
 		body.on_death()

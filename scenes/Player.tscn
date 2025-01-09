@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_heffq"]
 [ext_resource type="Texture2D" uid="uid://iyvi67ymcq7k" path="res://assets/Witch.png" id="2_i3p2r"]
 [ext_resource type="Material" uid="uid://dmxyyhfxg8ia0" path="res://particles/spaceman_px.tres" id="3_gfxfc"]
-[ext_resource type="AudioStream" uid="uid://d03hcb782py6n" path="res://assets/jetpack.wav" id="4_oen88"]
+[ext_resource type="AudioStream" uid="uid://cn77hmye55u76" path="res://sounds/Fantasy Sound Library/Wav/Spell_04.wav" id="4_rbg8c"]
 [ext_resource type="AudioStream" uid="uid://cg31fqvoxs1vx" path="res://sounds/Game/Voice1.wav" id="5_lkhxw"]
 [ext_resource type="Texture2D" uid="uid://dpywufcs4yjiq" path="res://assets/Witch_Falling.png" id="6_6kbfq"]
 [ext_resource type="PackedScene" uid="uid://ucocyvri64wq" path="res://scenes/ShadowCast.tscn" id="7_acqvn"]
@@ -113,7 +113,6 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" groups=["Player", "Spaceman"]]
 script = ExtResource("1_heffq")
-jump_force = 400.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_i3p2r")
@@ -137,7 +136,7 @@ explosiveness = 0.05
 
 [node name="FlightAudio" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("4_oen88")
+stream = ExtResource("4_rbg8c")
 bus = &"SoundFX"
 
 [node name="PlayerAudio" type="AudioStreamPlayer2D" parent="."]
@@ -155,4 +154,4 @@ libraries = {
 
 [node name="Wand" parent="." instance=ExtResource("8_voi8d")]
 unique_name_in_owner = true
-rate_delay = 0.2
+rate_delay = 0.15

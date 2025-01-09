@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_o5co6"]
 [ext_resource type="Texture2D" uid="uid://by6a2iqfiur81" path="res://assets/WakingMonkey.png" id="2_uusjk"]
-[ext_resource type="AudioStream" uid="uid://c21tgwqj65sui" path="res://sounds/Game/Kill.wav" id="3_ly1sm"]
+[ext_resource type="AudioStream" uid="uid://1te3x7m0ay1x" path="res://sounds/Game/Explosion.wav" id="3_ab4ko"]
 [ext_resource type="PackedScene" uid="uid://ucocyvri64wq" path="res://scenes/ShadowCast.tscn" id="4_2bnyq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_881jb"]
@@ -58,6 +58,8 @@ size = Vector2(10.5, 8.5)
 z_index = 2
 position = Vector2(0, -13)
 script = ExtResource("1_o5co6")
+score_value = 30
+hp = 4
 top_speed = 60.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -83,7 +85,7 @@ libraries = {
 
 [node name="HitAudio" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("3_ly1sm")
+stream = ExtResource("3_ab4ko")
 bus = &"SoundFX"
 
 [node name="EnemyCollision" type="Area2D" parent="."]

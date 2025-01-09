@@ -26,6 +26,7 @@ func shoot_ufo_projectile():
 	projectile_instance.global_position = self.global_position
 	projectile_instance.global_position.x -= 15
 	projectile_instance.set_direction(projectile_direction)
+	projectile_instance.set_top_speed(speed + projectile_instance.top_speed)
 	get_tree().root.add_child(projectile_instance)
 
 func _on_ufo_projectile_timer_timeout() -> void:

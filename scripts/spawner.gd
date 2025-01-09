@@ -2,42 +2,11 @@ class_name Spawner
 extends Node2D
 
 #  VARIABLES
-var LEVELS = {
-	0: { 
-		"name": "Start",
-		"collectible_time": 10.0,
-		"enemy_time": 10.0,
-		"flying_enemy_time": 10.0,
-		"fence_time": 10.0,
-		"win_score": 25,
-		},
-	1: {
-		"name": "Level 1",
-		"collectible_time": 1.0,
-		"enemy_time": 8.0,
-		"flying_enemy_time": 8.0,
-		"fence_time": 8.0,
-		"win_score": 100,
-	},
-	2: {
-		"name": "Crazy Mode",
-		"collectible_time": 1.5,
-		"enemy_time": 99.0,
-		"flying_enemy_time": 99.0,
-		"fence_time": 3.0,
-		"win_score": 300,
-	},
-	3: {
-		"name": "Level 2",
-		"collectible_time": 2.0,
-		"enemy_time": 3.0,
-		"flying_enemy_time": 5.0,
-		"fence_time": 999.0,
-		"win_score": 500,
-	},
-}
-
-var current_level: int = 0
+@export var scroll_speed: int = 60
+@export var STAGES: Array[StageConfig] = []
+@export var SHAPES: Array[CollectibleShapeConfig] = []
+var current_stage: int = 0
+var current_shape: int = 0
 const COLLECTIBLE = preload("res://scenes/Collectible.tscn")
 const ENEMY = preload("res://scenes/Enemy.tscn")
 const FLYING_ENEMY = preload("res://scenes/FlyingEnemy.tscn")
@@ -57,64 +26,86 @@ func _ready() -> void:
 
 # Stage Progression Functions
 func play_mode() -> void:
-	# TODO: Play the mode based on a dicitonary
+	# TODO: Play the mode based on a Resource
 	# TODO: Find a level that matches the current_level
-	var level = LEVELS[current_level]
+	var stage: StageConfig = STAGES[current_stage]
 	# TODO: update the timers based on the level data
-	collectible_timer.wait_time = level["collectible_time"]
-	enemy_timer.wait_time = level["enemy_time"]
-	flying_enemy_timer.wait_time = level["flying_enemy_time"]
-	fence_timer.wait_time = level["fence_time"]
+	collectible_timer.wait_time = stage.collectible_time
+	enemy_timer.wait_time = stage.enemy_time
+	flying_enemy_timer.wait_time = stage.flying_enemy_time
+	fence_timer.wait_time = stage.fence_time
 	# TODO: start the timers
 	start_all_timers()
 
 func next_stage() -> void:
-	update_mode_by_index(current_level + 1)
+	update_mode_by_index(current_stage + 1)
 
 func update_mode_by_index(idx: int) -> void:
-	# TODO: Check if index is a valid key in dicitonary
-	if LEVELS.keys().has(idx):
-		# TODO: If it is, set current_level  to index
-		current_level = idx
-		# TODO: Change timers to match the level
+	# Check if index is a valid key in dicitonary
+	if STAGES.size() > idx:
+		# If it is, set current_level  to index
+		current_stage = idx
+		# Change timers to match the level
 		play_mode()
 
 func update_mode_by_name(name: String) -> void:
-	# TODO: Check if any of the levels have a name that matches
-	for level in LEVELS:
-		if LEVELS[level]["name"] == name:
-			current_level = level
-			# TODO: Change timers to match the level
+	# Check if any of the stages have a name that matches requested stage
+	for i in STAGES.size():
+		if STAGES[i].name == name:
+			current_stage = i
+			# Change timers to match the level
 			play_mode()
 			return
 	
 func check_stage_cleared() -> void:
 	var score: int = ScoreboardManager.get_score()
-	if score > LEVELS[current_level].win_score:
+	if score > STAGES[current_stage].win_score:
 		next_stage()
+		scroll_speed = scroll_speed + (20 * current_stage)
 	
 
 # Spawn Functions
 func spawn_collectible() -> void:
-	var collectible_instance: Collectible = COLLECTIBLE.instantiate()
-	var player_position: Vector2 = get_parent().get_tree().get_first_node_in_group("Player").global_position
-	collectible_instance.global_position = Vector2(view_size.x, player_position.y)
-	get_tree().root.add_child(collectible_instance)
+	var rand_int: int = randi_range(-5,1)
+	var y_spawn: float = rand_int * 20
+
+	for i in SHAPES[current_shape].ROWS.size():
+		var split_row: Array[String]
+		var row: String = SHAPES[current_shape].ROWS[i]
+
+		for x in row.split(""):
+			split_row.append(x)
+
+		for j in split_row.size():
+			if split_row[j] == "1":
+				var col_instance: Collectible = COLLECTIBLE.instantiate()
+				col_instance.global_position = Vector2(view_size.x + (16 * j), y_spawn + (16 * i))
+				add_child(col_instance)
+	
+	# Change to a different shape or go back to start if we are out of bounds
+	if SHAPES.size() <= current_shape + 1:
+		current_shape = 0
+		return
+	
+	current_shape += 1
 
 func spawn_enemy() -> void:
 	var enemy_instance: Enemy = ENEMY.instantiate()
 	enemy_instance.global_position = Vector2(view_size.x, 30)
-	get_tree().root.add_child(enemy_instance)
+	enemy_instance.top_speed = scroll_speed
+	add_child(enemy_instance)
 
 func spawn_flying_enemy() -> void:
 	var enemy_instance: Enemy = FLYING_ENEMY.instantiate()
 	var player_position: Vector2 = get_parent().get_tree().get_first_node_in_group("Player").global_position
 	enemy_instance.global_position = Vector2(view_size.x, player_position.y)
-	get_tree().root.add_child(enemy_instance)
+	enemy_instance.top_speed = scroll_speed + 50
+	add_child(enemy_instance)
 
 func spawn_fence() -> void:
 	var fence_instance: Fence = FENCE.instantiate()
-	get_tree().root.add_child(fence_instance)
+	fence_instance.speed = scroll_speed + 10
+	add_child(fence_instance)
 
 
 # Timer Functions

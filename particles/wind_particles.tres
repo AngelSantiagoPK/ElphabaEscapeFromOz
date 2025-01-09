@@ -1,0 +1,20 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://ckry6b6nersi"]
+
+[sub_resource type="Curve" id="Curve_pf6uq"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.493377, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xtr4r"]
+curve = SubResource("Curve_pf6uq")
+
+[resource]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(640, 360, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(-900, 0, 0)
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 500.0
+damping_max = 500.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_xtr4r")

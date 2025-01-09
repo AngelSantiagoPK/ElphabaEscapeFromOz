@@ -1,9 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://mdbnyygkwx8u"]
+[gd_scene load_steps=19 format=3 uid="uid://mdbnyygkwx8u"]
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_mf6ua"]
+[ext_resource type="Script" path="res://scripts/stage_config.gd" id="2_puqtq"]
+[ext_resource type="Resource" uid="uid://2bwyvmx8hrdf" path="res://stages/stage_00.tres" id="3_yicyb"]
+[ext_resource type="Resource" uid="uid://23fkovin0gaq" path="res://stages/stage_01.tres" id="4_31865"]
+[ext_resource type="Resource" uid="uid://cf8vhh3xa3j4u" path="res://stages/stage_02.tres" id="5_2faak"]
+[ext_resource type="Resource" uid="uid://bh3bief6qd866" path="res://stages/stage_03.tres" id="6_22w6q"]
+[ext_resource type="Resource" uid="uid://cjmhcea2dxbvq" path="res://stages/stage_04.tres" id="7_sbfte"]
+[ext_resource type="Resource" uid="uid://s3khyt0wp4e2" path="res://stages/stage_05.tres" id="8_eewsq"]
+[ext_resource type="Resource" uid="uid://cxkwxnyywi2ri" path="res://stages/stage_06.tres" id="9_fvqq1"]
+[ext_resource type="Script" path="res://scripts/collectible_shape_config.gd" id="10_3864x"]
+[ext_resource type="Resource" uid="uid://hyuca8cs715v" path="res://collectible_shapes/collectible_heart.tres" id="12_o018u"]
+[ext_resource type="Resource" uid="uid://xs27vdhsjn4f" path="res://collectible_shapes/collectible_diamond.tres" id="13_ap8gn"]
+[ext_resource type="Resource" uid="uid://do82lvvcw4g2j" path="res://collectible_shapes/collectible_E.tres" id="14_pm023"]
+[ext_resource type="Resource" uid="uid://dc62khjet85sj" path="res://collectible_shapes/collectible_L.tres" id="15_na8ni"]
+[ext_resource type="Resource" uid="uid://pbeyb0othrgx" path="res://collectible_shapes/collectible_P.tres" id="16_rtcgp"]
+[ext_resource type="Resource" uid="uid://bdsnyu5hniux2" path="res://collectible_shapes/collectible_H.tres" id="17_wph44"]
+[ext_resource type="Resource" uid="uid://ddw14mnb0lgcm" path="res://collectible_shapes/collectible_A.tres" id="18_yjjrf"]
+[ext_resource type="Resource" uid="uid://df8rhwg6cpei2" path="res://collectible_shapes/collectible_B.tres" id="19_v34d5"]
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_mf6ua")
+scroll_speed = 100
+STAGES = Array[ExtResource("2_puqtq")]([ExtResource("3_yicyb"), ExtResource("4_31865"), ExtResource("5_2faak"), ExtResource("6_22w6q"), ExtResource("7_sbfte"), ExtResource("8_eewsq"), ExtResource("9_fvqq1")])
+SHAPES = Array[ExtResource("10_3864x")]([ExtResource("14_pm023"), ExtResource("15_na8ni"), ExtResource("16_rtcgp"), ExtResource("17_wph44"), ExtResource("18_yjjrf"), ExtResource("19_v34d5"), ExtResource("18_yjjrf"), ExtResource("13_ap8gn"), ExtResource("12_o018u"), ExtResource("13_ap8gn"), ExtResource("12_o018u"), ExtResource("13_ap8gn"), ExtResource("12_o018u"), ExtResource("13_ap8gn"), ExtResource("12_o018u"), ExtResource("13_ap8gn"), ExtResource("12_o018u")])
 
 [node name="Timers" type="Node" parent="."]
 

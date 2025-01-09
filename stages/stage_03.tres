@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="StageConfig" load_steps=2 format=3 uid="uid://bh3bief6qd866"]
+
+[ext_resource type="Script" path="res://scripts/stage_config.gd" id="1_ns7p2"]
+
+[resource]
+script = ExtResource("1_ns7p2")
+name = "Turn it up!"
+collectible_time = 3.0
+enemy_time = 6.0
+flying_enemy_time = 6.0
+fence_time = 10.0
+win_score = 4000
