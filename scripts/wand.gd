@@ -27,8 +27,8 @@ func fire_single_projectile():
 
 
 func fire_double_projectile():
-	var v1: Vector2 = Vector2(0.2, 1).normalized()
-	var v2: Vector2 = Vector2(-0.2, 1).normalized()
+	var v1: Vector2 = Vector2(0.3, 1).normalized()
+	var v2: Vector2 = Vector2(-0.1, 1).normalized()
 	var p1 = PROJECTILE.instantiate()
 	var p2 = PROJECTILE.instantiate()
 	p1.global_position = self.global_position

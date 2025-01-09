@@ -10,6 +10,7 @@ radius = 14.0
 z_index = 2
 script = ExtResource("1_ius7b")
 score_value = 5
+speed = 60.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gwtc3")

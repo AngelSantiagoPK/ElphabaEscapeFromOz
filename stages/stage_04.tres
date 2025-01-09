@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="StageConfig" load_steps=2 format=3 uid="uid://cjmhcea2dxbvq"]
+
+[ext_resource type="Script" path="res://scripts/stage_config.gd" id="1_khv1b"]
+
+[resource]
+script = ExtResource("1_khv1b")
+name = "Danger Rising"
+collectible_time = 3.0
+enemy_time = 6.0
+flying_enemy_time = 4.0
+fence_time = 10.0
+win_score = 8000

@@ -7,11 +7,14 @@ extends Node2D
 @onready var score_label: Label = %ScoreLabel
 @onready var hi_score_label: Label = %HiScoreLabel
 @onready var score_timer: Timer = %ScoreTimer
+@onready var wind_emitter: GPUParticles2D = %WindEmitter
+@onready var music: AudioStreamPlayer2D = %Music
 
 func _ready() -> void:
 	ScoreboardManager.reset_score()
 	player.death.connect(on_player_death)
 	update_hi_score_ui()
+	wind_emitter.emitting = true
 
 func _on_left_boundary_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy"):
@@ -44,6 +47,7 @@ func update_hi_score_ui():
 		hi_score_label.text = "HI-SCORE: " + str(ScoreboardManager.get_top_score())
 
 func time_freeze():
+	music.stop()
 	Engine.time_scale = 0.06
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(1.0, true, true, true).timeout
 	Engine.time_scale = 1.0

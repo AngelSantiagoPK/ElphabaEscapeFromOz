@@ -3,9 +3,9 @@ extends CharacterBody2D
 
 signal death
 
-@export var jump_force: float = 196.0
-@export var top_speed: float = 120.00
-var gravity: float = 98.0
+@export var jump_force: float = 600.0
+@export var top_speed: float = 200
+@export var gravity: float = 300
 @onready var player_px: GPUParticles2D = %PlayerPX
 @onready var flight_audio: AudioStreamPlayer2D = %FlightAudio
 @onready var player_audio: AudioStreamPlayer2D = %PlayerAudio
@@ -30,18 +30,16 @@ func _physics_process(delta: float) -> void:
 
 
 func on_death() -> void:
-	const DEAD = preload("res://sounds/Fantasy Sound Library/Wav/Trap_00.wav")
-	player_audio.stream = DEAD
-	player_audio.play()
 	death.emit()
 
 func fly_animations():
 	fly_animator.play('rise')
 	wand.use_wand()
 	player_px.emitting = true
+	if flight_audio.playing:
+		return
 	flight_audio.play()
 
 func fall_animations():
 	fly_animator.play('fall')
 	player_px.emitting = false
-	flight_audio.stop()

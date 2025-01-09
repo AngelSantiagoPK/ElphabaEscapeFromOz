@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CollectibleShapeConfig" load_steps=2 format=3 uid="uid://dav734al0bd14"]
+
+[ext_resource type="Script" path="res://scripts/collectible_shape_config.gd" id="1_7gdwm"]
+
+[resource]
+script = ExtResource("1_7gdwm")
+ROWS = {
+0: "11100",
+1: "11100",
+2: "11100",
+3: "00000",
+4: "00000",
+5: "00000"
+}
