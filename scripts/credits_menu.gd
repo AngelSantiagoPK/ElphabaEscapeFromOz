@@ -20,7 +20,6 @@ func click_button_and_go_to_scene(scene: String):
 	const ACCEPT = preload("res://sounds/Fantasy Sound Library/Wav/Inventory_Open_01.wav")
 	menu_audio.stream = ACCEPT
 	menu_audio.play()
-	await menu_audio.finished
 	get_tree().change_scene_to_file(scene)
 
 func display_hi_score():

@@ -61,7 +61,6 @@ func check_stage_cleared() -> void:
 	var score: int = ScoreboardManager.get_score()
 	if score > STAGES[current_stage].win_score:
 		next_stage()
-		scroll_speed = scroll_speed + (20 * current_stage)
 	
 
 # Spawn Functions
@@ -92,19 +91,17 @@ func spawn_collectible() -> void:
 func spawn_enemy() -> void:
 	var enemy_instance: Enemy = ENEMY.instantiate()
 	enemy_instance.global_position = Vector2(view_size.x, 30)
-	enemy_instance.top_speed = scroll_speed
 	add_child(enemy_instance)
 
 func spawn_flying_enemy() -> void:
 	var enemy_instance: Enemy = FLYING_ENEMY.instantiate()
-	var player_position: Vector2 = get_parent().get_tree().get_first_node_in_group("Player").global_position
-	enemy_instance.global_position = Vector2(view_size.x, player_position.y)
-	enemy_instance.top_speed = scroll_speed + 50
+	var rand_int: int = randi_range(-5,1)
+	var y_spawn: float = rand_int * 20
+	enemy_instance.global_position = Vector2(view_size.x, y_spawn)
 	add_child(enemy_instance)
 
 func spawn_fence() -> void:
 	var fence_instance: Fence = FENCE.instantiate()
-	fence_instance.speed = scroll_speed + 10
 	add_child(fence_instance)
 
 

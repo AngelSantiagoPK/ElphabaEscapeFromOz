@@ -1,52 +1,63 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxtsvvnyqk4s8"]
+[gd_scene load_steps=13 format=3 uid="uid://dxtsvvnyqk4s8"]
 
 [ext_resource type="Script" path="res://scripts/enemy_projectile.gd" id="1_qnlvy"]
-[ext_resource type="Texture2D" uid="uid://ds315ec0tlh46" path="res://assets/projectiles.png" id="2_waulx"]
+[ext_resource type="Texture2D" uid="uid://bduucqd5mrnvw" path="res://assets/Bullet.png" id="2_bpro8"]
+[ext_resource type="Shader" path="res://shaders/2d_outline.gdshader" id="2_tc5f1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_frhmi"]
-atlas = ExtResource("2_waulx")
-region = Rect2(72, 48, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xysu0"]
-atlas = ExtResource("2_waulx")
-region = Rect2(80, 48, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mn21y"]
-atlas = ExtResource("2_waulx")
-region = Rect2(88, 48, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wny7k"]
-atlas = ExtResource("2_waulx")
-region = Rect2(96, 48, 8, 8)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v2fjv"]
+shader = ExtResource("2_tc5f1")
+shader_parameter/width = 1
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/flickering_speed = null
+shader_parameter/minimal_flickering_alpha = 0.9
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mui6k"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_frhmi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xysu0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mn21y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wny7k")
+"texture": ExtResource("2_bpro8")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcefe"]
-size = Vector2(8, 3)
+[sub_resource type="CircleShape2D" id="CircleShape2D_5bwts"]
+radius = 4.03113
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cwo0"]
-size = Vector2(10, 5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_iw480"]
+radius = 5.02494
+
+[sub_resource type="Gradient" id="Gradient_fhm5w"]
+offsets = PackedFloat32Array(0, 0.127049, 0.372951, 0.540984, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 1, 1, 0.341176, 0, 1, 1, 1, 0, 1, 0.317647, 0.317647, 0.317647, 0.87451)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ighmj"]
+gradient = SubResource("Gradient_fhm5w")
+
+[sub_resource type="Curve" id="Curve_paokb"]
+max_value = 4.0
+_data = [Vector2(0, 0.132843), 0.0, 0.0, 0, 0, Vector2(0.34106, 1.88355), -19.974, -19.974, 0, 0, Vector2(0.817881, 2.01583), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_iiixy"]
+curve = SubResource("Curve_paokb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0wubq"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(-50, 0, 0)
+emission_shape_scale = Vector3(1, 5, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -344.5
+angle_max = 166.5
+spread = 35.0
+gravity = Vector3(1200, 0, 0)
+scale_curve = SubResource("CurveTexture_iiixy")
+color_ramp = SubResource("GradientTexture1D_ighmj")
 
 [node name="EnemyProjectile" type="CharacterBody2D" groups=["Bullet"]]
-z_index = -1
+z_index = 1
 collision_layer = 0
 script = ExtResource("1_qnlvy")
 acceleration = 200.0
@@ -55,16 +66,16 @@ lifetime = 10.0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-z_index = -1
+material = SubResource("ShaderMaterial_v2fjv")
 position = Vector2(0, -0.5)
 rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_mui6k")
 autoplay = "default"
+frame_progress = 0.518224
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_jcefe")
+shape = SubResource("CircleShape2D_5bwts")
 disabled = true
 
 [node name="LifetimeTimer" type="Timer" parent="."]
@@ -73,8 +84,15 @@ unique_name_in_owner = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_3cwo0")
+shape = SubResource("CircleShape2D_iw480")
+
+[node name="EnemyProjectilePX" type="GPUParticles2D" parent="."]
+z_index = -1
+amount = 1
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_0wubq")
+lifetime = 0.5
+trail_enabled = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

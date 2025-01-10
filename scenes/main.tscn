@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://db3oe4ww2id52"]
+[gd_scene load_steps=22 format=3 uid="uid://db3oe4ww2id52"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_6qkl8"]
 [ext_resource type="PackedScene" uid="uid://dly784j7texob" path="res://scenes/Player.tscn" id="1_rpfxv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ddb661l0fvapy" path="res://assets/Emerald City.png" id="6_ib32n"]
 [ext_resource type="Texture2D" uid="uid://cchjkwgyb2xj5" path="res://assets/Skybox.png" id="9_nuy01"]
 [ext_resource type="Script" path="res://scripts/parallax_motion.gd" id="10_7x6hh"]
+[ext_resource type="Shader" path="res://shaders/2d_outline.gdshader" id="10_grofp"]
 [ext_resource type="Texture2D" uid="uid://d3xwnctul0ble" path="res://assets/Mountain.png" id="12_i273c"]
 [ext_resource type="Texture2D" uid="uid://dq0uwdxc8o3aq" path="res://assets/Trees.png" id="13_ijyjj"]
 [ext_resource type="Texture2D" uid="uid://cnrhgk2juqua7" path="res://assets/Road.png" id="14_l52wm"]
@@ -36,6 +37,13 @@ expand_margin_top = 4.0
 expand_margin_right = 12.0
 expand_margin_bottom = 4.0
 anti_aliasing = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_65ont"]
+shader = ExtResource("10_grofp")
+shader_parameter/width = 1
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/flickering_speed = null
+shader_parameter/minimal_flickering_alpha = 0.9
 
 [sub_resource type="Gradient" id="Gradient_8qu4v"]
 offsets = PackedFloat32Array(0, 0.542208, 1)
@@ -153,6 +161,7 @@ script = ExtResource("10_7x6hh")
 speed = 6.0
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingBG/CrystalCityLayer"]
+material = SubResource("ShaderMaterial_65ont")
 texture = ExtResource("6_ib32n")
 centered = false
 

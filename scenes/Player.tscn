@@ -1,17 +1,24 @@
-[gd_scene load_steps=16 format=3 uid="uid://dly784j7texob"]
+[gd_scene load_steps=17 format=3 uid="uid://dly784j7texob"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_heffq"]
-[ext_resource type="Texture2D" uid="uid://iyvi67ymcq7k" path="res://assets/Witch.png" id="2_i3p2r"]
+[ext_resource type="Shader" path="res://shaders/2d_outline.gdshader" id="1_panmo"]
+[ext_resource type="Texture2D" uid="uid://du6ov340pb88t" path="res://assets/Wicked.PNG" id="2_yuml8"]
 [ext_resource type="Material" uid="uid://dmxyyhfxg8ia0" path="res://particles/spaceman_px.tres" id="3_gfxfc"]
 [ext_resource type="AudioStream" uid="uid://cn77hmye55u76" path="res://sounds/Fantasy Sound Library/Wav/Spell_04.wav" id="4_rbg8c"]
 [ext_resource type="AudioStream" uid="uid://cg31fqvoxs1vx" path="res://sounds/Game/Voice1.wav" id="5_lkhxw"]
-[ext_resource type="Texture2D" uid="uid://dpywufcs4yjiq" path="res://assets/Witch_Falling.png" id="6_6kbfq"]
 [ext_resource type="PackedScene" uid="uid://ucocyvri64wq" path="res://scenes/ShadowCast.tscn" id="7_acqvn"]
 [ext_resource type="PackedScene" uid="uid://d2bxgwg4vt8bt" path="res://scenes/wand.tscn" id="8_voi8d"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w8uex"]
+shader = ExtResource("1_panmo")
+shader_parameter/width = 1
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/flickering_speed = 1.0
+shader_parameter/minimal_flickering_alpha = 0.9
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_881jb"]
-radius = 3.5
-height = 14.0
+radius = 8.5
+height = 25.0
 
 [sub_resource type="Gradient" id="Gradient_urrvr"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -25,84 +32,12 @@ fill_from = Vector2(0.557339, 0.490826)
 
 [sub_resource type="Animation" id="Animation_kecgn"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_i3p2r")]
-}
 
 [sub_resource type="Animation" id="Animation_itd45"]
 resource_name = "fall"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("6_6kbfq")]
-}
 
 [sub_resource type="Animation" id="Animation_rtt3l"]
 resource_name = "rise"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.0872665]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_i3p2r")]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_65fbw"]
 _data = {
@@ -113,19 +48,25 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" groups=["Player", "Spaceman"]]
 script = ExtResource("1_heffq")
+jump_force = 500.0
+top_speed = 180.0
+gravity = 250.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_i3p2r")
+material = SubResource("ShaderMaterial_w8uex")
+scale = Vector2(-1, 1)
+texture = ExtResource("2_yuml8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -1)
+position = Vector2(6, 0)
 scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_881jb")
 
 [node name="PlayerPX" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-15, 5)
-rotation = 3.14159
+z_index = -1
+position = Vector2(-13, 21)
+rotation = 2.44346
 emitting = false
 amount = 10
 sub_emitter = NodePath(".")
@@ -154,4 +95,4 @@ libraries = {
 
 [node name="Wand" parent="." instance=ExtResource("8_voi8d")]
 unique_name_in_owner = true
-rate_delay = 0.15
+rate_delay = 0.1
