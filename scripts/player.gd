@@ -33,6 +33,8 @@ func on_death() -> void:
 	death.emit()
 
 func fly_animations():
+	if self.scale.y > .9:
+		self.scale.y -= .01
 	fly_animator.play('rise')
 	wand.use_wand()
 	player_px.emitting = true
@@ -41,5 +43,7 @@ func fly_animations():
 	flight_audio.play()
 
 func fall_animations():
+	if self.scale.y < 1:
+		self.scale.y += .01
 	fly_animator.play('fall')
 	player_px.emitting = false

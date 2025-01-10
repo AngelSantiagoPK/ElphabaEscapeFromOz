@@ -18,6 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 ScoreboardManager="*res://singletons/scoreboard.gd"
+LoadManager="*res://singletons/LoadManager.gd"
+PathManager="*res://singletons/PathManager.gd"
+ParticlesCacheManager="*res://singletons/ParticlesCache.gd"
 
 [display]
 

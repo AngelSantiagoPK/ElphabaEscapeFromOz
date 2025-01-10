@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://mdbnyygkwx8u"]
+[gd_scene load_steps=15 format=3 uid="uid://mdbnyygkwx8u"]
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_mf6ua"]
 [ext_resource type="Script" path="res://scripts/stage_config.gd" id="2_puqtq"]
@@ -12,11 +12,13 @@
 [ext_resource type="Script" path="res://scripts/collectible_shape_config.gd" id="10_3864x"]
 [ext_resource type="Resource" uid="uid://dav734al0bd14" path="res://collectible_shapes/collectible_box.tres" id="12_05e21"]
 [ext_resource type="Resource" uid="uid://xs27vdhsjn4f" path="res://collectible_shapes/collectible_diamond.tres" id="13_ap8gn"]
+[ext_resource type="Resource" uid="uid://by587t030mfft" path="res://collectible_shapes/collectible_column.tres" id="13_b1gbf"]
+[ext_resource type="Resource" uid="uid://ccf28sbf2nwfg" path="res://collectible_shapes/collectible_row.tres" id="14_456h3"]
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_mf6ua")
 STAGES = Array[ExtResource("2_puqtq")]([ExtResource("3_yicyb"), ExtResource("4_31865"), ExtResource("5_2faak"), ExtResource("6_22w6q"), ExtResource("7_sbfte"), ExtResource("8_eewsq"), ExtResource("9_fvqq1")])
-SHAPES = Array[ExtResource("10_3864x")]([ExtResource("13_ap8gn"), ExtResource("12_05e21")])
+SHAPES = Array[ExtResource("10_3864x")]([ExtResource("13_ap8gn"), ExtResource("12_05e21"), ExtResource("13_b1gbf"), ExtResource("14_456h3")])
 
 [node name="Timers" type="Node" parent="."]
 

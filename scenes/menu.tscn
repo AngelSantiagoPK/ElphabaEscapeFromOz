@@ -2,11 +2,11 @@
 
 [ext_resource type="FontFile" uid="uid://dyni14hwwignh" path="res://assets/fonts/Free_Pixel_Font_Devilsworkshop_v01/ThickThinPixel.ttf" id="1_3qmyd"]
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_hvbro"]
-[ext_resource type="Texture2D" uid="uid://cchjkwgyb2xj5" path="res://assets/Skybox.png" id="2_u03sl"]
-[ext_resource type="Texture2D" uid="uid://d3xwnctul0ble" path="res://assets/Mountain.png" id="3_ekplm"]
+[ext_resource type="Texture2D" uid="uid://cchjkwgyb2xj5" path="res://assets/Background Images/Skybox.png" id="2_u03sl"]
+[ext_resource type="Texture2D" uid="uid://d3xwnctul0ble" path="res://assets/Background Images/Mountain.png" id="3_ekplm"]
 [ext_resource type="Script" path="res://scripts/start_button.gd" id="4_ism6r"]
-[ext_resource type="Texture2D" uid="uid://dq0uwdxc8o3aq" path="res://assets/Trees.png" id="4_qmxvv"]
-[ext_resource type="Texture2D" uid="uid://cnrhgk2juqua7" path="res://assets/Road.png" id="5_pyse8"]
+[ext_resource type="Texture2D" uid="uid://dq0uwdxc8o3aq" path="res://assets/Background Images/Trees.png" id="4_qmxvv"]
+[ext_resource type="Texture2D" uid="uid://cnrhgk2juqua7" path="res://assets/Background Images/Road.png" id="5_pyse8"]
 
 [sub_resource type="Gradient" id="Gradient_gwsa5"]
 offsets = PackedFloat32Array(0, 0.556667, 1)

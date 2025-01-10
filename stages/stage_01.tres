@@ -9,4 +9,4 @@ collectible_time = 3.0
 enemy_time = 5.0
 flying_enemy_time = 10.0
 fence_time = 6.0
-win_score = 1500
+win_score = 2000

@@ -8,10 +8,10 @@ func _ready() -> void:
 	display_hi_score()
 	
 func _on_play_button_pressed() -> void:
-	click_button_and_go_to_scene("res://scenes/main.tscn")
+	click_button_and_go_to_scene(PathManager._game_world_path)
 	
 func _on_back_button_pressed() -> void:
-	click_button_and_go_to_scene("res://scenes/menu.tscn")	
+	click_button_and_go_to_scene(PathManager._main_menu_path)	
 
 func click_button_and_go_to_scene(scene: String):
 	if !scene:
@@ -20,7 +20,7 @@ func click_button_and_go_to_scene(scene: String):
 	const ACCEPT = preload("res://sounds/Fantasy Sound Library/Wav/Inventory_Open_01.wav")
 	menu_audio.stream = ACCEPT
 	menu_audio.play()
-	get_tree().change_scene_to_file(scene)
+	LoadManager.load_scene(scene)
 
 func display_hi_score():
 	score.text = "HI-SCORE:  " + str(ScoreboardManager.top_score)

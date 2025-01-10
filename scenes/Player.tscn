@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_heffq"]
 [ext_resource type="Shader" path="res://shaders/2d_outline.gdshader" id="1_panmo"]
 [ext_resource type="Texture2D" uid="uid://du6ov340pb88t" path="res://assets/Wicked.PNG" id="2_yuml8"]
-[ext_resource type="Material" uid="uid://dmxyyhfxg8ia0" path="res://particles/spaceman_px.tres" id="3_gfxfc"]
+[ext_resource type="Material" uid="uid://dmxyyhfxg8ia0" path="res://particles/broom_px.tres" id="3_gfxfc"]
 [ext_resource type="AudioStream" uid="uid://cn77hmye55u76" path="res://sounds/Fantasy Sound Library/Wav/Spell_04.wav" id="4_rbg8c"]
 [ext_resource type="AudioStream" uid="uid://cg31fqvoxs1vx" path="res://sounds/Game/Voice1.wav" id="5_lkhxw"]
 [ext_resource type="PackedScene" uid="uid://ucocyvri64wq" path="res://scenes/ShadowCast.tscn" id="7_acqvn"]
@@ -48,7 +48,6 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" groups=["Player", "Spaceman"]]
 script = ExtResource("1_heffq")
-jump_force = 500.0
 top_speed = 180.0
 gravity = 250.0
 

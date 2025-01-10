@@ -1,9 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://2gewv8oihb8d"]
+[gd_scene load_steps=10 format=3 uid="uid://2gewv8oihb8d"]
 
 [ext_resource type="Script" path="res://scripts/laser_node.gd" id="1_gyh86"]
 [ext_resource type="Texture2D" uid="uid://dttw1wombnw1l" path="res://assets/LaserNode.png" id="2_bi5r7"]
+[ext_resource type="Texture2D" uid="uid://d4g7wnj7ct82s" path="res://assets/Ui.png" id="2_ryqvq"]
 [ext_resource type="Material" uid="uid://m14ct0cqnfw8" path="res://particles/laser_px.tres" id="3_y6cyq"]
 [ext_resource type="Texture2D" uid="uid://c44g5kkdd8s3b" path="res://assets/bubble.png" id="4_xvnxg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dldko"]
+atlas = ExtResource("2_ryqvq")
+region = Rect2(0, 95, 24, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yl8qj"]
+atlas = ExtResource("2_ryqvq")
+region = Rect2(24, 95, 24, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tljq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dldko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yl8qj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cuntb"]
 radius = 7.0
@@ -12,9 +35,14 @@ radius = 7.0
 z_index = 1
 script = ExtResource("1_gyh86")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2tljq")
+autoplay = "default"
+frame_progress = 0.898749
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
-scale = Vector2(2, 2)
 texture = ExtResource("2_bi5r7")
 region_rect = Rect2(88, 32, 16, 16)
 
@@ -24,7 +52,7 @@ shape = SubResource("CircleShape2D_cuntb")
 
 [node name="LaserGun" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(14, 0)
+position = Vector2(8, 0)
 
 [node name="LaserPX" type="GPUParticles2D" parent="."]
 position = Vector2(4, 0)

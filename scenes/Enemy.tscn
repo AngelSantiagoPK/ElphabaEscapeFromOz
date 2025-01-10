@@ -71,6 +71,7 @@ size = Vector2(14.5, 11)
 z_index = 2
 position = Vector2(0, -13)
 script = ExtResource("1_o5co6")
+score_value = 100
 hp = 4
 top_speed = 120.0
 

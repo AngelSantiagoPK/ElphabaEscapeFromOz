@@ -1,16 +1,16 @@
-[gd_scene load_steps=22 format=3 uid="uid://db3oe4ww2id52"]
+[gd_scene load_steps=21 format=3 uid="uid://db3oe4ww2id52"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_6qkl8"]
 [ext_resource type="PackedScene" uid="uid://dly784j7texob" path="res://scenes/Player.tscn" id="1_rpfxv"]
 [ext_resource type="PackedScene" uid="uid://bmc3ohxihgmc7" path="res://scenes/left_boundary.tscn" id="4_7ov4u"]
 [ext_resource type="PackedScene" uid="uid://b6plifmxmk7gt" path="res://scenes/Wall.tscn" id="6_0y6fy"]
-[ext_resource type="Texture2D" uid="uid://ddb661l0fvapy" path="res://assets/Emerald City.png" id="6_ib32n"]
-[ext_resource type="Texture2D" uid="uid://cchjkwgyb2xj5" path="res://assets/Skybox.png" id="9_nuy01"]
+[ext_resource type="Texture2D" uid="uid://2ngk85q3uu7c" path="res://assets/PlayerIcon.png" id="6_wyumt"]
+[ext_resource type="Texture2D" uid="uid://cchjkwgyb2xj5" path="res://assets/Background Images/Skybox.png" id="9_nuy01"]
 [ext_resource type="Script" path="res://scripts/parallax_motion.gd" id="10_7x6hh"]
-[ext_resource type="Shader" path="res://shaders/2d_outline.gdshader" id="10_grofp"]
-[ext_resource type="Texture2D" uid="uid://d3xwnctul0ble" path="res://assets/Mountain.png" id="12_i273c"]
-[ext_resource type="Texture2D" uid="uid://dq0uwdxc8o3aq" path="res://assets/Trees.png" id="13_ijyjj"]
-[ext_resource type="Texture2D" uid="uid://cnrhgk2juqua7" path="res://assets/Road.png" id="14_l52wm"]
+[ext_resource type="Texture2D" uid="uid://d3xwnctul0ble" path="res://assets/Background Images/Mountain.png" id="12_i273c"]
+[ext_resource type="Texture2D" uid="uid://dq0uwdxc8o3aq" path="res://assets/Background Images/Trees.png" id="12_txgtj"]
+[ext_resource type="Texture2D" uid="uid://ddb661l0fvapy" path="res://assets/Background Images/Emerald City.png" id="13_hoswk"]
+[ext_resource type="Texture2D" uid="uid://8y7lbi2t5dof" path="res://assets/Background Images/Solid_Road.png" id="13_ww2ut"]
 [ext_resource type="FontFile" uid="uid://dyni14hwwignh" path="res://assets/fonts/Free_Pixel_Font_Devilsworkshop_v01/ThickThinPixel.ttf" id="15_0sl5u"]
 [ext_resource type="AudioStream" uid="uid://r2x3u1lvognn" path="res://sounds/WInd/wind1.wav" id="15_a7pq3"]
 [ext_resource type="Material" uid="uid://ckry6b6nersi" path="res://particles/wind_particles.tres" id="15_c2s3m"]
@@ -38,13 +38,6 @@ expand_margin_right = 12.0
 expand_margin_bottom = 4.0
 anti_aliasing = false
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_65ont"]
-shader = ExtResource("10_grofp")
-shader_parameter/width = 1
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/flickering_speed = null
-shader_parameter/minimal_flickering_alpha = 0.9
-
 [sub_resource type="Gradient" id="Gradient_8qu4v"]
 offsets = PackedFloat32Array(0, 0.542208, 1)
 colors = PackedColorArray(1, 1, 1, 0, 0.784314, 1, 1, 0.8, 1, 1, 1, 0)
@@ -58,30 +51,34 @@ fill_to = Vector2(0, 1)
 script = ExtResource("1_6qkl8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(320, 200)
 shape = SubResource("RectangleShape2D_rnvfo")
+shape_centered = false
 action = "ui_up"
 
 [node name="Player" parent="." instance=ExtResource("1_rpfxv")]
 unique_name_in_owner = true
-position = Vector2(-174, 111)
+position = Vector2(240, 200)
 
 [node name="LeftBoundary" parent="." instance=ExtResource("4_7ov4u")]
 unique_name_in_owner = true
-position = Vector2(-497, -305)
+position = Vector2(-6, -120)
 
 [node name="Wall" parent="." instance=ExtResource("6_0y6fy")]
 visible = false
-position = Vector2(346, 133)
+position = Vector2(606, 315)
 scale = Vector2(2.92, 1)
 
 [node name="Wall2" parent="." instance=ExtResource("6_0y6fy")]
 visible = false
-position = Vector2(351, -127)
+position = Vector2(598, 52)
 scale = Vector2(2.92, 1)
 
 [node name="UI" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="UI"]
 custom_minimum_size = Vector2(640, 55)
@@ -115,6 +112,13 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_xwdtb")
 text = "press up to shoot"
 
+[node name="PlayerIcon" type="TextureRect" parent="UI/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("6_wyumt")
+
 [node name="HiScoreLabel" type="Label" parent="UI/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -142,59 +146,9 @@ stream = ExtResource("15_a7pq3")
 volume_db = 1.0
 autoplay = true
 
-[node name="MovingBG" type="ParallaxBackground" parent="."]
-
-[node name="SkyLayer" type="ParallaxLayer" parent="MovingBG"]
-motion_offset = Vector2(0, -180)
-motion_mirroring = Vector2(640, 0)
-script = ExtResource("10_7x6hh")
-speed = 0.0
-
-[node name="Sprite2D" type="Sprite2D" parent="MovingBG/SkyLayer"]
-texture = ExtResource("9_nuy01")
-centered = false
-
-[node name="CrystalCityLayer" type="ParallaxLayer" parent="MovingBG"]
-motion_offset = Vector2(0, -320)
-motion_mirroring = Vector2(640, 0)
-script = ExtResource("10_7x6hh")
-speed = 6.0
-
-[node name="Sprite2D" type="Sprite2D" parent="MovingBG/CrystalCityLayer"]
-material = SubResource("ShaderMaterial_65ont")
-texture = ExtResource("6_ib32n")
-centered = false
-
-[node name="MountainLayer" type="ParallaxLayer" parent="MovingBG"]
-motion_offset = Vector2(0, -156)
-motion_mirroring = Vector2(640, 0)
-script = ExtResource("10_7x6hh")
-
-[node name="Sprite2D" type="Sprite2D" parent="MovingBG/MountainLayer"]
-texture = ExtResource("12_i273c")
-centered = false
-
-[node name="ForestLayer" type="ParallaxLayer" parent="MovingBG"]
-motion_offset = Vector2(0, -180)
-motion_mirroring = Vector2(640, 0)
-script = ExtResource("10_7x6hh")
-speed = 60.0
-
-[node name="Sprite2D" type="Sprite2D" parent="MovingBG/ForestLayer"]
-texture = ExtResource("13_ijyjj")
-centered = false
-
-[node name="RoadLayer" type="ParallaxLayer" parent="MovingBG"]
-motion_offset = Vector2(0, -180)
-motion_mirroring = Vector2(640, 0)
-script = ExtResource("10_7x6hh")
-speed = 100.0
-
-[node name="Sprite2D" type="Sprite2D" parent="MovingBG/RoadLayer"]
-texture = ExtResource("14_l52wm")
-centered = false
-
 [node name="Spawner" parent="." instance=ExtResource("17_axwok")]
+unique_name_in_owner = true
+position = Vector2(640, 0)
 
 [node name="WindEmitter" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
@@ -208,6 +162,59 @@ preprocess = 20.0
 randomness = 1.0
 trail_enabled = true
 trail_lifetime = 0.5
+
+[node name="Parallax2D" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="Parallax2D"]
+motion_mirroring = Vector2(640, 0)
+script = ExtResource("10_7x6hh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxLayer1"]
+z_index = -4
+texture = ExtResource("9_nuy01")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Parallax2D"]
+position = Vector2(0, -50)
+motion_mirroring = Vector2(640, 0)
+script = ExtResource("10_7x6hh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxLayer2"]
+z_index = -4
+texture = ExtResource("13_hoswk")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Parallax2D"]
+position = Vector2(0, 30)
+motion_mirroring = Vector2(640, 0)
+script = ExtResource("10_7x6hh")
+speed = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxLayer3"]
+z_index = -3
+texture = ExtResource("12_i273c")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Parallax2D"]
+motion_mirroring = Vector2(640, 0)
+script = ExtResource("10_7x6hh")
+speed = 30.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxLayer4"]
+z_index = -2
+texture = ExtResource("12_txgtj")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="Parallax2D"]
+motion_mirroring = Vector2(640, 0)
+script = ExtResource("10_7x6hh")
+speed = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxLayer6"]
+z_index = -1
+texture = ExtResource("13_ww2ut")
+centered = false
 
 [connection signal="area_entered" from="LeftBoundary" to="." method="_on_left_boundary_area_entered"]
 [connection signal="body_entered" from="LeftBoundary" to="." method="_on_left_boundary_body_entered"]

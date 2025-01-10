@@ -1,7 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://bu2t4vq4mja0i"]
+[gd_scene load_steps=11 format=3 uid="uid://bu2t4vq4mja0i"]
 
-[ext_resource type="Texture2D" uid="uid://ds315ec0tlh46" path="res://assets/projectiles.png" id="1_gwtc3"]
 [ext_resource type="Script" path="res://scripts/collectible.gd" id="1_ius7b"]
+[ext_resource type="Texture2D" uid="uid://d4g7wnj7ct82s" path="res://assets/Ui.png" id="2_d3h3c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2csyk"]
+atlas = ExtResource("2_d3h3c")
+region = Rect2(0, 125, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4anu"]
+atlas = ExtResource("2_d3h3c")
+region = Rect2(32, 125, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig84y"]
+atlas = ExtResource("2_d3h3c")
+region = Rect2(64, 125, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_letkt"]
+atlas = ExtResource("2_d3h3c")
+region = Rect2(96, 125, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1afvp"]
+atlas = ExtResource("2_d3h3c")
+region = Rect2(124, 126, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ng10"]
+atlas = ExtResource("2_d3h3c")
+region = Rect2(156, 126, 32, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ickic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2csyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4anu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig84y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_letkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1afvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ng10")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bok3v"]
 radius = 14.0
@@ -9,13 +59,14 @@ radius = 14.0
 [node name="Collectible" type="Area2D"]
 z_index = 2
 script = ExtResource("1_ius7b")
-score_value = 5
+score_value = 50
 speed = 60.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_gwtc3")
-region_enabled = true
-region_rect = Rect2(16, 0, 8, 8)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_ickic")
+autoplay = "default"
+frame_progress = 0.795662
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bok3v")

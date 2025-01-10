@@ -5,8 +5,8 @@
 [ext_resource type="Shader" path="res://shaders/laser_beam.gdshader" id="3_1tyth"]
 
 [sub_resource type="Gradient" id="Gradient_dx3fh"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.770492, 0.155319, 0.768508, 1)
+offsets = PackedFloat32Array(0.254098)
+colors = PackedColorArray(0.863102, 0.221291, 0.0845362, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_nsmqh"]
 gradient = SubResource("Gradient_dx3fh")
@@ -26,12 +26,12 @@ noise = SubResource("FastNoiseLite_2o053")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_at48w"]
 shader = ExtResource("3_1tyth")
 shader_parameter/use_color_gradient = true
-shader_parameter/color_effect_mod = 0.5
+shader_parameter/color_effect_mod = 0.0
 shader_parameter/color_gradient = SubResource("GradientTexture2D_nsmqh")
-shader_parameter/intensive = 0.8
+shader_parameter/intensive = 1.0
 shader_parameter/lightning_thin = 1.0
 shader_parameter/number_lightning = 3
-shader_parameter/speed = 0.5
+shader_parameter/speed = 1.0
 shader_parameter/position = 0.5
 shader_parameter/lightning_noise = SubResource("NoiseTexture2D_flk42")
 
@@ -87,9 +87,8 @@ _data = {
 z_index = 2
 script = ExtResource("1_fkwtj")
 speed = 50.0
-top_limit = -100
-max_fence_length = 150
-min_fence_length = 100
+top_limit = 55
+bot_limit = 200
 NODES = [NodePath("LaserNode1"), NodePath("LaserNode2")]
 
 [node name="LaserNode1" parent="." instance=ExtResource("2_bv58x")]
@@ -100,6 +99,7 @@ NODES = [NodePath("LaserNode1"), NodePath("LaserNode2")]
 unique_name_in_owner = true
 z_index = 1
 material = SubResource("ShaderMaterial_at48w")
+width = 8.0
 texture = SubResource("GradientTexture2D_fsthi")
 texture_mode = 2
 joint_mode = 2

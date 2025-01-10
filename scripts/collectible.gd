@@ -6,7 +6,14 @@ signal collected
 @export var score_value: int = 10
 @export var speed: float = 50.0
 const POINTS = preload("res://scenes/PointsEarnedDisplay.tscn")
+@onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 
+func _ready() -> void:
+	animated_sprite_2d.stop()
+	var rand_time: int = randi_range(1, 2)
+	await get_tree().create_timer(rand_time).timeout
+	animated_sprite_2d.play("default")
+	
 func _physics_process(delta: float) -> void:
 	self.position.x -= speed * delta
 
