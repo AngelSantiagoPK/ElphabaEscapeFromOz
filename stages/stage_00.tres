@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_dprx4")
 name = "Start"
-collectible_time = 3.0
+collectible_time = 10.0
 enemy_time = 3.0
 flying_enemy_time = 10.0
 fence_time = 999.0

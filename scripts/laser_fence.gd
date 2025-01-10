@@ -11,6 +11,7 @@ var starting_pos: Vector2
 const LASER_NODE = preload("res://scenes/laser_node.tscn")
 @export var NODES: Array[LaserNode]
 
+
 @onready var laser_line: Line2D = %LaserLine
 @onready var laser_ray: RayCast2D = %LaserRay
 @onready var collision_area: Area2D = %CollisionArea

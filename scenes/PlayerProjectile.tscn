@@ -13,7 +13,7 @@ size = Vector2(8, 3)
 size = Vector2(10, 5)
 
 [node name="PlayerProjectile" type="CharacterBody2D"]
-z_index = -1
+z_index = 1
 script = ExtResource("1_5iexh")
 acceleration = 800.0
 top_speed = 500.0
