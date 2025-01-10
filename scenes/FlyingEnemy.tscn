@@ -53,11 +53,13 @@ _data = {
 size = Vector2(25, 8)
 
 [node name="FlyingEnemy" type="CharacterBody2D" groups=["Enemy"]]
+z_index = 2
 script = ExtResource("1_5u7qp")
-projectile_delay = 5.0
-score_value = 50
-speed = 60.0
-top_speed = 80.0
+max_height = 55
+min_height = 280
+score_value = 200
+speed = 100.0
+top_speed = 180.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_fu308")
@@ -72,10 +74,6 @@ frame_progress = 0.298691
 position = Vector2(5, -1)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_v7n3v")
-
-[node name="UFOProjectileTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-autostart = true
 
 [node name="HitAudio" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
@@ -106,5 +104,4 @@ scale = Vector2(2, 2)
 position = Vector2(2, -3)
 shape = SubResource("RectangleShape2D_r88up")
 
-[connection signal="timeout" from="UFOProjectileTimer" to="." method="_on_ufo_projectile_timer_timeout"]
 [connection signal="body_entered" from="EnemyCollision" to="." method="_on_enemy_collision_body_entered"]

@@ -1,110 +1,121 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1736469400
-default_bus_layout.tres::AudioBusLayout::8888639221558869776::1736464763::0::1::::<><>::
-export_presets.cfg::TextFile::-1::1736392253::0::1::::<><>::
+::res://::1736541159
+default_bus_layout.tres::AudioBusLayout::8888639221558869776::1736533447::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1736473827::0::1::::<><>::
 icon.svg::CompressedTexture2D::8223143433994566153::1736366989::1736367039::1::::<><>::
-::res://assets/::1736469395
+::res://assets/::1736541159
 Alien.png::CompressedTexture2D::8012727479082619996::1736366989::1736367039::1::::<><>::
 bubble.png::CompressedTexture2D::6868603204353800089::1736366989::1736367039::1::::<><>::
 Bullet.png::CompressedTexture2D::2639493527519331036::1736366989::1736367039::1::::<><>::
 bullet_shoot.wav::AudioStreamWAV::7745985745029618325::1736366989::1736367039::1::::<><>::
 Clouds.png::CompressedTexture2D::8453673875793256892::1736366989::1736367039::1::::<><>::
-Emerald City.png::CompressedTexture2D::7373831929877617774::1736366989::1736367039::1::::<><>::
 explosion.wav::AudioStreamWAV::6489188113454832578::1736366989::1736367039::1::::<><>::
-FlyingMonkey.png::CompressedTexture2D::3542408311295356611::1736464782::1736464782::1::::<><>::
-FlyingMonkeyWingsDown.png::CompressedTexture2D::2027449335611560592::1736464782::1736464782::1::::<><>::
+FlyingMonkey.png::CompressedTexture2D::3542408311295356611::1736473515::1736473537::1::::<><>::
+FlyingMonkeyWingsDown.png::CompressedTexture2D::2027449335611560592::1736473515::1736473537::1::::<><>::
 jetpack.wav::AudioStreamWAV::8972214413174121427::1736366989::1736367039::1::::<><>::
 LaserNode.png::CompressedTexture2D::8533456639699507407::1736366989::1736367039::1::::<><>::
-Monkey2.png::CompressedTexture2D::2775981825521265692::1736431411::1736443046::1::::<><>::
-Monkey3.png::CompressedTexture2D::1315581478338669726::1736467147::1736469395::1::::<><>::
-Monkey 2.png::CompressedTexture2D::8430881582703859172::1736431441::1736443046::1::::<><>::
-Mountain.png::CompressedTexture2D::9173389485771587126::1736366989::1736367039::1::::<><>::
+Monkey2.png::CompressedTexture2D::2775981825521265692::1736473515::1736473537::1::::<><>::
+Monkey3.png::CompressedTexture2D::1315581478338669726::1736473515::1736473537::1::::<><>::
+Monkey 2.png::CompressedTexture2D::8430881582703859172::1736473515::1736473537::1::::<><>::
+PlayerIcon.png::CompressedTexture2D::1922319629305180914::1736493466::1736493471::1::::<><>::
+PlayerIconDeath.png::CompressedTexture2D::7455751762588894686::1736493817::1736493824::1::::<><>::
 projectiles.png::CompressedTexture2D::8482096243651361597::1736366989::1736367039::1::::<><>::
-Road.png::CompressedTexture2D::5720827057591952144::1736366989::1736367039::1::::<><>::
 Shadow.png::CompressedTexture2D::4898758312109760171::1736366989::1736367039::1::::<><>::
-Skybox.png::CompressedTexture2D::4928235175690036756::1736366989::1736367039::1::::<><>::
 Spaceman.png::CompressedTexture2D::1165203604937111503::1736366989::1736367039::1::::<><>::
 Tank.png::CompressedTexture2D::8128406650710239966::1736366989::1736367039::1::::<><>::
-Trees.png::CompressedTexture2D::8335146813696657280::1736366989::1736367039::1::::<><>::
 UFO.png::CompressedTexture2D::6523348081509632124::1736366989::1736367039::1::::<><>::
+Ui.png::CompressedTexture2D::9209107712505219236::1736491493::1736491503::1::::<><>::
 WakingMonkey.png::CompressedTexture2D::4134997302959510016::1736366989::1736367039::1::::<><>::
-Wicked.PNG::CompressedTexture2D::8627923690395678545::1736428551::1736465001::1::::<><>::
+Wicked.PNG::CompressedTexture2D::8627923690395678545::1736473515::1736473537::1::::<><>::
 WingedMonkey.png::CompressedTexture2D::5678223097032641061::1736366989::1736367039::1::::<><>::
 Witch.png::CompressedTexture2D::612346837165208794::1736366989::1736367039::1::::<><>::
 Witch_Falling.png::CompressedTexture2D::8263011528030088596::1736366989::1736367039::1::::<><>::
-::res://assets/Background Images/::1736454651
-InnerCastleBackground.png::CompressedTexture2D::8155079214601748438::1736454651::1736454651::1::::<><>::
-InnerCastleColumns.png::CompressedTexture2D::1734877798431235452::1736454322::1736454371::1::::<><>::
-InnerCastleWalls.png::CompressedTexture2D::5582412660230541994::1736454363::1736454371::1::::<><>::
+::res://assets/Background Images/::1736541159
+Emerald City.png::CompressedTexture2D::7373831929877617774::1736366989::1736541159::1::::<><>::
+InnerCastleBackground.png::CompressedTexture2D::8155079214601748438::1736473515::1736473537::1::::<><>::
+InnerCastleColumns.png::CompressedTexture2D::1734877798431235452::1736473515::1736473537::1::::<><>::
+InnerCastleWalls.png::CompressedTexture2D::5582412660230541994::1736473515::1736473537::1::::<><>::
+Mountain.png::CompressedTexture2D::9173389485771587126::1736366989::1736478897::1::::<><>::
+Road.png::CompressedTexture2D::5720827057591952144::1736366989::1736478897::1::::<><>::
+Skybox.png::CompressedTexture2D::4928235175690036756::1736366989::1736478897::1::::<><>::
+Solid_Road.png::CompressedTexture2D::2367739559789099373::1736478869::1736478872::1::::<><>::
+Trees.png::CompressedTexture2D::8335146813696657280::1736366989::1736478897::1::::<><>::
 ::res://assets/fonts/::1736366989
 ::res://assets/fonts/Free_Pixel_Font_Devilsworkshop_v01/::1736367039
 ReadMe.txt::TextFile::-1::1736366989::0::1::::<><>::
 ThickThinPixel.ttf::FontFile::8871164910798602105::1736366989::1736367039::1::::<><>::
-::res://assets/googletestimages/::1736444824
-inner emerald castle.jpg::CompressedTexture2D::172137342954346180::1736444770::1736444824::1::::<><>::
-::res://collectible_shapes/::1736464804
+::res://assets/googletestimages/::1736473537
+inner emerald castle.jpg::CompressedTexture2D::172137342954346180::1736473515::1736473537::1::::<><>::
+::res://collectible_shapes/::1736533545
 collectible_A.tres::Resource/CollectibleShapeConfig::7416875972859827760::1736464804::0::1::::<><>::res://scripts/collectible_shape_config.gd
 collectible_B.tres::Resource/CollectibleShapeConfig::7579376590782096819::1736464804::0::1::::<><>::res://scripts/collectible_shape_config.gd
-collectible_box.tres::Resource/CollectibleShapeConfig::7204608453622818325::1736392119::0::1::::<><>::res://scripts/collectible_shape_config.gd
-collectible_diamond.tres::Resource/CollectibleShapeConfig::1653199815424710043::1736464804::0::1::::<><>::res://scripts/collectible_shape_config.gd
+collectible_box.tres::Resource/CollectibleShapeConfig::7204608453622818325::1736533545::0::1::::<><>::res://scripts/collectible_shape_config.gd
+collectible_column.tres::Resource/CollectibleShapeConfig::4134946107663762561::1736533545::0::1::::<><>::res://scripts/collectible_shape_config.gd
+collectible_diamond.tres::Resource/CollectibleShapeConfig::1653199815424710043::1736533545::0::1::::<><>::res://scripts/collectible_shape_config.gd
 collectible_E.tres::Resource/CollectibleShapeConfig::8211690465986041215::1736464804::0::1::::<><>::res://scripts/collectible_shape_config.gd
 collectible_H.tres::Resource/CollectibleShapeConfig::2634979291286849769::1736464804::0::1::::<><>::res://scripts/collectible_shape_config.gd
 collectible_heart.tres::Resource/CollectibleShapeConfig::542084934101559833::1736464804::0::1::::<><>::res://scripts/collectible_shape_config.gd
 collectible_L.tres::Resource/CollectibleShapeConfig::7365293047250119645::1736464804::0::1::::<><>::res://scripts/collectible_shape_config.gd
 collectible_P.tres::Resource/CollectibleShapeConfig::1055182851154570767::1736464804::0::1::::<><>::res://scripts/collectible_shape_config.gd
-::res://particles/::1736464804
-alien_corpse_px.tres::ParticleProcessMaterial::8313960455642428567::1736464804::0::1::::<><>::
-bullet_px.tres::ParticleProcessMaterial::8797062491674173073::1736366989::0::1::::<><>::
-laser_px.tres::ParticleProcessMaterial::897705346316512905::1736464804::0::1::::<><>::
-spaceman_px.tres::ParticleProcessMaterial::8050509306400991425::1736464804::0::1::::<><>::
-wind_particles.tres::ParticleProcessMaterial::162098143942116800::1736464804::0::1::::<><>::
-::res://scenes/::1736471510
-Collectible.tscn::PackedScene::3847142295740409090::1736471510::0::1::::<><>::uid://ds315ec0tlh46::::res://assets/projectiles.png<>res://scripts/collectible.gd
-credits_menu.tscn::PackedScene::586841170268062582::1736366989::0::1::::<><>::res://scripts/credits_menu.gd<>uid://cchjkwgyb2xj5::::res://assets/Skybox.png<>uid://d3xwnctul0ble::::res://assets/Mountain.png<>uid://dq0uwdxc8o3aq::::res://assets/Trees.png<>uid://cnrhgk2juqua7::::res://assets/Road.png<>uid://dyni14hwwignh::::res://assets/fonts/Free_Pixel_Font_Devilsworkshop_v01/ThickThinPixel.ttf<>res://scripts/start_button.gd
-Enemy.tscn::PackedScene::1179787002129601969::1736471510::0::1::::<><>::res://scripts/enemy.gd<>res://shaders/2d_outline.gdshader<>uid://bfsyarpdy34qi::::res://assets/Monkey2.png<>uid://1te3x7m0ay1x::::res://sounds/Game/Explosion.wav<>uid://dsd8ngoavh6c3::::res://assets/Monkey 2.png<>uid://ucocyvri64wq::::res://scenes/ShadowCast.tscn<>uid://s0jo1s848tvq::::res://assets/Monkey3.png
-EnemyProjectile.tscn::PackedScene::8813960163808052105::1736471510::0::1::::<><>::res://scripts/enemy_projectile.gd<>uid://bduucqd5mrnvw::::res://assets/Bullet.png<>res://shaders/2d_outline.gdshader
-Fence.tscn::PackedScene::4300417597556677138::1736471657::0::1::::<><>::res://scripts/laser_fence.gd<>uid://2gewv8oihb8d::::res://scenes/laser_node.tscn<>res://shaders/laser_beam.gdshader
-FlyingEnemy.tscn::PackedScene::5858957022244618431::1736471510::0::1::::<><>::res://scripts/flying_enemy.gd<>uid://bqp77hebp50c2::::res://assets/FlyingMonkey.png<>res://shaders/2d_outline.gdshader<>uid://35d2ai41ighk::::res://assets/FlyingMonkeyWingsDown.png<>uid://1te3x7m0ay1x::::res://sounds/Game/Explosion.wav<>uid://ucocyvri64wq::::res://scenes/ShadowCast.tscn
-laser_node.tscn::PackedScene::1907768354804169377::1736471510::0::1::::<><>::res://scripts/laser_node.gd<>uid://dttw1wombnw1l::::res://assets/LaserNode.png<>uid://m14ct0cqnfw8::::res://particles/laser_px.tres<>uid://c44g5kkdd8s3b::::res://assets/bubble.png
+collectible_row.tres::Resource/CollectibleShapeConfig::4925240180665023616::1736492826::0::1::::<><>::res://scripts/collectible_shape_config.gd
+::res://particles/::1736538053
+alien_corpse_px.tres::ParticleProcessMaterial::8313960455642428567::1736533545::0::1::::<><>::
+broom_px.tres::ParticleProcessMaterial::8050509306400991425::1736533545::0::1::::<><>::
+bullet_px.tres::ParticleProcessMaterial::8797062491674173073::1736538053::0::1::::<><>::
+laser_px.tres::ParticleProcessMaterial::897705346316512905::1736533545::0::1::::<><>::
+wind_particles.tres::ParticleProcessMaterial::162098143942116800::1736534703::0::1::::<><>::
+::res://scenes/::1736541146
+Collectible.tscn::PackedScene::3847142295740409090::1736538384::0::1::::<><>::res://scripts/collectible.gd<>uid://d4g7wnj7ct82s::::res://assets/Ui.png
+credits_menu.tscn::PackedScene::586841170268062582::1736538385::0::1::::<><>::res://scripts/credits_menu.gd<>uid://cchjkwgyb2xj5::::res://assets/Background Images/Skybox.png<>uid://d3xwnctul0ble::::res://assets/Background Images/Mountain.png<>uid://dq0uwdxc8o3aq::::res://assets/Background Images/Trees.png<>uid://cnrhgk2juqua7::::res://assets/Background Images/Road.png<>uid://dyni14hwwignh::::res://assets/fonts/Free_Pixel_Font_Devilsworkshop_v01/ThickThinPixel.ttf<>res://scripts/start_button.gd
+Enemy.tscn::PackedScene::1179787002129601969::1736538384::0::1::::<><>::res://scripts/enemy.gd<>res://shaders/2d_outline.gdshader<>uid://bfsyarpdy34qi::::res://assets/Monkey2.png<>uid://1te3x7m0ay1x::::res://sounds/Game/Explosion.wav<>uid://dsd8ngoavh6c3::::res://assets/Monkey 2.png<>uid://ucocyvri64wq::::res://scenes/ShadowCast.tscn<>uid://s0jo1s848tvq::::res://assets/Monkey3.png
+EnemyProjectile.tscn::PackedScene::8813960163808052105::1736473515::0::1::::<><>::res://scripts/enemy_projectile.gd<>uid://bduucqd5mrnvw::::res://assets/Bullet.png<>res://shaders/2d_outline.gdshader
+Fence.tscn::PackedScene::4300417597556677138::1736541067::0::1::::<><>::res://scripts/laser_fence.gd<>uid://2gewv8oihb8d::::res://scenes/laser_node.tscn<>res://shaders/laser_beam.gdshader
+FlyingEnemy.tscn::PackedScene::5858957022244618431::1736539537::0::1::::<><>::res://scripts/flying_enemy.gd<>uid://bqp77hebp50c2::::res://assets/FlyingMonkey.png<>res://shaders/2d_outline.gdshader<>uid://35d2ai41ighk::::res://assets/FlyingMonkeyWingsDown.png<>uid://1te3x7m0ay1x::::res://sounds/Game/Explosion.wav<>uid://ucocyvri64wq::::res://scenes/ShadowCast.tscn
+laser_node.tscn::PackedScene::1907768354804169377::1736538384::0::1::::<><>::res://scripts/laser_node.gd<>uid://dttw1wombnw1l::::res://assets/LaserNode.png<>uid://d4g7wnj7ct82s::::res://assets/Ui.png<>uid://m14ct0cqnfw8::::res://particles/laser_px.tres<>uid://c44g5kkdd8s3b::::res://assets/bubble.png
 left_boundary.tscn::PackedScene::3234541043336778868::1736366989::0::1::::<><>::res://scripts/boundary.gd
-main.tscn::PackedScene::7288112211104190035::1736471524::0::1::::<><>::res://scripts/main.gd<>uid://dly784j7texob::::res://scenes/Player.tscn<>uid://bmc3ohxihgmc7::::res://scenes/left_boundary.tscn<>uid://b6plifmxmk7gt::::res://scenes/Wall.tscn<>uid://ddb661l0fvapy::::res://assets/Emerald City.png<>uid://cchjkwgyb2xj5::::res://assets/Skybox.png<>res://scripts/parallax_motion.gd<>res://shaders/2d_outline.gdshader<>uid://d3xwnctul0ble::::res://assets/Mountain.png<>uid://dq0uwdxc8o3aq::::res://assets/Trees.png<>uid://cnrhgk2juqua7::::res://assets/Road.png<>uid://dyni14hwwignh::::res://assets/fonts/Free_Pixel_Font_Devilsworkshop_v01/ThickThinPixel.ttf<>uid://r2x3u1lvognn::::res://sounds/WInd/wind1.wav<>uid://ckry6b6nersi::::res://particles/wind_particles.tres<>uid://duihpqja36b7::::res://sounds/Wicked - Defying Gravity - 8 Bit.mp3<>uid://mdbnyygkwx8u::::res://scenes/Spawner.tscn
-menu.tscn::PackedScene::743492690032308483::1736392119::0::1::::<><>::uid://dyni14hwwignh::::res://assets/fonts/Free_Pixel_Font_Devilsworkshop_v01/ThickThinPixel.ttf<>res://scripts/menu.gd<>uid://cchjkwgyb2xj5::::res://assets/Skybox.png<>uid://d3xwnctul0ble::::res://assets/Mountain.png<>res://scripts/start_button.gd<>uid://dq0uwdxc8o3aq::::res://assets/Trees.png<>uid://cnrhgk2juqua7::::res://assets/Road.png
-Player.tscn::PackedScene::7982887810722384585::1736471510::0::1::::<><>::res://scripts/player.gd<>res://shaders/2d_outline.gdshader<>uid://du6ov340pb88t::::res://assets/Wicked.PNG<>uid://dmxyyhfxg8ia0::::res://particles/spaceman_px.tres<>uid://cn77hmye55u76::::res://sounds/Fantasy Sound Library/Wav/Spell_04.wav<>uid://cg31fqvoxs1vx::::res://sounds/Game/Voice1.wav<>uid://ucocyvri64wq::::res://scenes/ShadowCast.tscn<>uid://d2bxgwg4vt8bt::::res://scenes/wand.tscn
-PlayerProjectile.tscn::PackedScene::3383510811811139289::1736465298::0::1::::<><>::res://scripts/player_projectile.gd<>uid://ds315ec0tlh46::::res://assets/projectiles.png
+LoadScreen.tscn::PackedScene::7127852672389384067::1736538385::0::1::::<><>::res://scripts/load_screen.gd<>uid://dyni14hwwignh::::res://assets/fonts/Free_Pixel_Font_Devilsworkshop_v01/ThickThinPixel.ttf
+main.tscn::PackedScene::7288112211104190035::1736541146::0::1::::<><>::res://scripts/main.gd<>uid://dly784j7texob::::res://scenes/Player.tscn<>uid://bmc3ohxihgmc7::::res://scenes/left_boundary.tscn<>uid://b6plifmxmk7gt::::res://scenes/Wall.tscn<>uid://2ngk85q3uu7c::::res://assets/PlayerIcon.png<>uid://cchjkwgyb2xj5::::res://assets/Background Images/Skybox.png<>res://scripts/parallax_motion.gd<>uid://d3xwnctul0ble::::res://assets/Background Images/Mountain.png<>uid://dq0uwdxc8o3aq::::res://assets/Background Images/Trees.png<>uid://8y7lbi2t5dof::::res://assets/Background Images/Solid_Road.png<>uid://dyni14hwwignh::::res://assets/fonts/Free_Pixel_Font_Devilsworkshop_v01/ThickThinPixel.ttf<>uid://r2x3u1lvognn::::res://sounds/WInd/wind1.wav<>uid://ckry6b6nersi::::res://particles/wind_particles.tres<>uid://duihpqja36b7::::res://sounds/Wicked - Defying Gravity - 8 Bit.mp3<>uid://mdbnyygkwx8u::::res://scenes/Spawner.tscn
+menu.tscn::PackedScene::743492690032308483::1736538515::0::1::::<><>::uid://dyni14hwwignh::::res://assets/fonts/Free_Pixel_Font_Devilsworkshop_v01/ThickThinPixel.ttf<>res://scripts/menu.gd<>uid://cchjkwgyb2xj5::::res://assets/Background Images/Skybox.png<>uid://d3xwnctul0ble::::res://assets/Background Images/Mountain.png<>res://scripts/start_button.gd<>uid://dq0uwdxc8o3aq::::res://assets/Background Images/Trees.png<>uid://cnrhgk2juqua7::::res://assets/Background Images/Road.png
+Player.tscn::PackedScene::7982887810722384585::1736538384::0::1::::<><>::res://scripts/player.gd<>res://shaders/2d_outline.gdshader<>uid://du6ov340pb88t::::res://assets/Wicked.PNG<>uid://dmxyyhfxg8ia0::::res://particles/broom_px.tres<>uid://cn77hmye55u76::::res://sounds/Fantasy Sound Library/Wav/Spell_04.wav<>uid://cg31fqvoxs1vx::::res://sounds/Game/Voice1.wav<>uid://ucocyvri64wq::::res://scenes/ShadowCast.tscn<>uid://d2bxgwg4vt8bt::::res://scenes/wand.tscn
+PlayerProjectile.tscn::PackedScene::3383510811811139289::1736538384::0::1::::<><>::res://scripts/player_projectile.gd<>uid://d4g7wnj7ct82s::::res://assets/Ui.png
 PointsEarnedDisplay.tscn::PackedScene::3731877722973960103::1736366989::0::1::::<><>::res://scripts/monkey_corpse.gd<>uid://dyni14hwwignh::::res://assets/fonts/Free_Pixel_Font_Devilsworkshop_v01/ThickThinPixel.ttf<>uid://fd5fkmejyplf::::res://sounds/Game/Gold1.wav
 ProjectileEffect.tscn::PackedScene::1730015274509373610::1736366989::0::1::::<><>::res://scripts/bullethole.gd<>uid://dqplyjn3dte5d::::res://particles/alien_corpse_px.tres
-blur.gdshader::Shader::-1::1736471657::0::1::::<><>::
 ShadowCast.tscn::PackedScene::1408760531540949320::1736366989::0::1::::<><>::uid://cb183l0cqdh1d::::res://assets/Shadow.png<>res://scripts/shadow_cast.gd
-Spawner.tscn::PackedScene::848544487154675810::1736471510::0::1::::<><>::res://scripts/spawner.gd<>res://scripts/stage_config.gd<>uid://2bwyvmx8hrdf::::res://stages/stage_00.tres<>uid://23fkovin0gaq::::res://stages/stage_01.tres<>uid://cf8vhh3xa3j4u::::res://stages/stage_02.tres<>uid://bh3bief6qd866::::res://stages/stage_03.tres<>uid://cjmhcea2dxbvq::::res://stages/stage_04.tres<>uid://s3khyt0wp4e2::::res://stages/stage_05.tres<>uid://cxkwxnyywi2ri::::res://stages/stage_06.tres<>res://scripts/collectible_shape_config.gd<>uid://hyuca8cs715v::::res://collectible_shapes/collectible_heart.tres<>uid://xs27vdhsjn4f::::res://collectible_shapes/collectible_diamond.tres<>uid://do82lvvcw4g2j::::res://collectible_shapes/collectible_E.tres<>uid://dc62khjet85sj::::res://collectible_shapes/collectible_L.tres<>uid://pbeyb0othrgx::::res://collectible_shapes/collectible_P.tres<>uid://bdsnyu5hniux2::::res://collectible_shapes/collectible_H.tres<>uid://ddw14mnb0lgcm::::res://collectible_shapes/collectible_A.tres<>uid://df8rhwg6cpei2::::res://collectible_shapes/collectible_B.tres
+Spawner.tscn::PackedScene::848544487154675810::1736541067::0::1::::<><>::res://scripts/spawner.gd<>res://scripts/stage_config.gd<>uid://2bwyvmx8hrdf::::res://stages/stage_00.tres<>uid://23fkovin0gaq::::res://stages/stage_01.tres<>uid://cf8vhh3xa3j4u::::res://stages/stage_02.tres<>uid://bh3bief6qd866::::res://stages/stage_03.tres<>uid://cjmhcea2dxbvq::::res://stages/stage_04.tres<>uid://s3khyt0wp4e2::::res://stages/stage_05.tres<>uid://cxkwxnyywi2ri::::res://stages/stage_06.tres<>res://scripts/collectible_shape_config.gd<>uid://dav734al0bd14::::res://collectible_shapes/collectible_box.tres<>uid://xs27vdhsjn4f::::res://collectible_shapes/collectible_diamond.tres<>uid://by587t030mfft::::res://collectible_shapes/collectible_column.tres<>uid://ccf28sbf2nwfg::::res://collectible_shapes/collectible_row.tres
 Wall.tscn::PackedScene::4593922958270556623::1736366989::0::1::::<><>::
 wand.tscn::PackedScene::9057833578786300353::1736465298::0::1::::<><>::res://scripts/wand.gd
-::res://scripts/::1736469560
+::res://scripts/::1736540645
 boundary.gd::GDScript::-1::1736366989::0::1::::Boundary<>CollisionShape2D<>::
 bullethole.gd::GDScript::-1::1736366989::0::1::::ProjectileEffect<>Node2D<>::
-collectible.gd::GDScript::-1::1736366989::0::1::::Collectible<>Area2D<>::
+collectible.gd::GDScript::-1::1736492046::0::1::::Collectible<>Area2D<>::
 collectible_shape_config.gd::GDScript::-1::1736392119::0::1::::CollectibleShapeConfig<>Resource<>::
-credits_menu.gd::GDScript::-1::1736366989::0::1::::CreditsMenu<>Node2D<>::
+credits_menu.gd::GDScript::-1::1736536170::0::1::::CreditsMenu<>Node2D<>::
 enemy.gd::GDScript::-1::1736392119::0::1::::Enemy<>CharacterBody2D<>::
 enemy_projectile.gd::GDScript::-1::1736392119::0::1::::EnemyProjectile<>CharacterBody2D<>::
 flying_corpse.gd::GDScript::-1::1736366989::0::1::::FlyingMonkeyCorpse<>Node2D<>::
-flying_enemy.gd::GDScript::-1::1736392119::0::1::::FlyingEnemy<>Enemy<>::
-laser_fence.gd::GDScript::-1::1736471657::0::1::::Fence<>Node2D<>::
+flying_enemy.gd::GDScript::-1::1736539258::0::1::::FlyingEnemy<>Enemy<>::
+laser_fence.gd::GDScript::-1::1736540347::0::1::::Fence<>Node2D<>::
 laser_node.gd::GDScript::-1::1736366989::0::1::::LaserNode<>Area2D<>::
-main.gd::GDScript::-1::1736392119::0::1::::Main<>Node2D<>::
-menu.gd::GDScript::-1::1736392339::0::1::::Menu<>Node2D<>::
+load_screen.gd::GDScript::-1::1736538515::0::1::::<>CanvasLayer<>::
+main.gd::GDScript::-1::1736536062::0::1::::Main<>Node2D<>::
+menu.gd::GDScript::-1::1736538289::0::1::::Menu<>Node2D<>::
 monkey_corpse.gd::GDScript::-1::1736366989::0::1::::PointsEarnedDisplay<>Node2D<>::
+parallax_controller.gd::GDScript::-1::1736540645::0::1::::ParallaxController<>ParallaxBackground<>::
 parallax_motion.gd::GDScript::-1::1736366989::0::1::::<>ParallaxLayer<>::
-player.gd::GDScript::-1::1736392119::0::1::::Player<>CharacterBody2D<>::
+player.gd::GDScript::-1::1736480841::0::1::::Player<>CharacterBody2D<>::
 player_projectile.gd::GDScript::-1::1736366989::0::1::::PlayerProjectile<>CharacterBody2D<>::
 shadow_cast.gd::GDScript::-1::1736366989::0::1::::ShadowCast<>Node2D<>::
-spawner.gd::GDScript::-1::1736469560::0::1::::Spawner<>Node2D<>::
+spawner.gd::GDScript::-1::1736539659::0::1::::Spawner<>Node2D<>::
 stage_config.gd::GDScript::-1::1736392119::0::1::::StageConfig<>Resource<>::
 start_button.gd::GDScript::-1::1736366989::0::1::::<>Button<>::
 wand.gd::GDScript::-1::1736392119::0::1::::Wand<>Node2D<>::
-::res://shaders/::1736471510
-2d_outline.gdshader::Shader::-1::1736471657::0::1::::<><>::
-laser_beam.gdshader::Shader::-1::1736471657::0::1::::<><>::
-::res://singletons/::1736366989
+::res://shaders/::1736541146
+2d_outline.gdshader::Shader::-1::1736541146::0::1::::<><>::
+laser_beam.gdshader::Shader::-1::1736541146::0::1::::<><>::
+::res://singletons/::1736538160
+LoadManager.gd::GDScript::-1::1736536749::0::1::::<>Node<>::
+ParticlesCache.gd::GDScript::-1::1736538160::0::1::::<>CanvasLayer<>::
+PathManager.gd::GDScript::-1::1736535991::0::1::::<>Node<>::
 scoreboard.gd::GDScript::-1::1736366989::0::1::::Scoreboard<>Node<>::
 ::res://sounds/::1736367343
 Wicked - Defying Gravity - 8 Bit.mp3::AudioStreamMP3::252353135471936702::1736367332::1736367343::1::::<><>::
@@ -274,8 +285,8 @@ wind2.wav::AudioStreamWAV::1287175669895982315::1736367332::1736367343::1::::<><
 wind3.wav::AudioStreamWAV::7417790362405988025::1736367332::1736367343::1::::<><>::
 wind4.wav::AudioStreamWAV::7916880621540515918::1736367332::1736367343::1::::<><>::
 wind5.wav::AudioStreamWAV::718757394199481923::1736367332::1736367343::1::::<><>::
-::res://stages/::1736392127
-stage_00.tres::Resource/StageConfig::1898542911492928599::1736392127::0::1::::<><>::res://scripts/stage_config.gd
+::res://stages/::1736473552
+stage_00.tres::Resource/StageConfig::1898542911492928599::1736473552::0::1::::<><>::res://scripts/stage_config.gd
 stage_01.tres::Resource/StageConfig::1953223566393069440::1736392127::0::1::::<><>::res://scripts/stage_config.gd
 stage_02.tres::Resource/StageConfig::5193198020829867986::1736392127::0::1::::<><>::res://scripts/stage_config.gd
 stage_03.tres::Resource/StageConfig::2935620388864466425::1736392127::0::1::::<><>::res://scripts/stage_config.gd

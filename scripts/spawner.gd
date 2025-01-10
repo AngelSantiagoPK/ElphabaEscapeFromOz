@@ -1,6 +1,8 @@
 class_name Spawner
 extends Node2D
 
+#  SIGNALS
+signal stage_completed
 #  VARIABLES
 @export var scroll_speed: int = 60
 @export var STAGES: Array[StageConfig] = []
@@ -12,6 +14,8 @@ const ENEMY = preload("res://scenes/Enemy.tscn")
 const FLYING_ENEMY = preload("res://scenes/FlyingEnemy.tscn")
 const FENCE = preload("res://scenes/Fence.tscn")
 var view_size: Vector2 = Vector2(640, 360)
+var ui_threshold: int = 55
+var floor_threshold: int = 80
 
 # REFERENCES
 @onready var collectible_timer: Timer = %CollectibleTimer
@@ -61,12 +65,14 @@ func check_stage_cleared() -> void:
 	var score: int = ScoreboardManager.get_score()
 	if score > STAGES[current_stage].win_score:
 		next_stage()
+		stage_completed.emit()
 	
 
 # Spawn Functions
 func spawn_collectible() -> void:
-	var rand_int: int = randi_range(-5,1)
-	var y_spawn: float = rand_int * 20
+	var collectible_size: int = 32
+	var rand_int: int = randi_range(1, 5)
+	var y_spawn: float = rand_int * 20 + ui_threshold
 
 	for i in SHAPES[current_shape].ROWS.size():
 		var split_row: Array[String]
@@ -78,7 +84,8 @@ func spawn_collectible() -> void:
 		for j in split_row.size():
 			if split_row[j] == "1":
 				var col_instance: Collectible = COLLECTIBLE.instantiate()
-				col_instance.global_position = Vector2(view_size.x + (16 * j), y_spawn + (16 * i))
+				col_instance.global_position = Vector2(view_size.x + (collectible_size * j), y_spawn + (collectible_size * i))
+				col_instance.speed = scroll_speed
 				add_child(col_instance)
 	
 	# Change to a different shape or go back to start if we are out of bounds
@@ -90,18 +97,20 @@ func spawn_collectible() -> void:
 
 func spawn_enemy() -> void:
 	var enemy_instance: Enemy = ENEMY.instantiate()
-	enemy_instance.global_position = Vector2(view_size.x, 30)
+	enemy_instance.global_position = Vector2(view_size.x, 200)
+	enemy_instance.top_speed = scroll_speed + (scroll_speed * .01)
 	add_child(enemy_instance)
 
 func spawn_flying_enemy() -> void:
 	var enemy_instance: Enemy = FLYING_ENEMY.instantiate()
-	var rand_int: int = randi_range(-5,1)
-	var y_spawn: float = rand_int * 20
+	var rand_int: int = randi_range(1, 5)
+	var y_spawn: float = rand_int * 20 + ui_threshold
 	enemy_instance.global_position = Vector2(view_size.x, y_spawn)
 	add_child(enemy_instance)
 
 func spawn_fence() -> void:
 	var fence_instance: Fence = FENCE.instantiate()
+	fence_instance.speed = scroll_speed
 	add_child(fence_instance)
 
 

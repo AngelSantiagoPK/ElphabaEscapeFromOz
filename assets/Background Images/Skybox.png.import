@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq0uwdxc8o3aq"
-path="res://.godot/imported/Trees.png-f801ea1cd3d5d91a3484136ab82bd39c.ctex"
+uid="uid://cchjkwgyb2xj5"
+path="res://.godot/imported/Skybox.png-240c0cebf5daade44463998f65ecc57f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Trees.png"
-dest_files=["res://.godot/imported/Trees.png-f801ea1cd3d5d91a3484136ab82bd39c.ctex"]
+source_file="res://assets/Background Images/Skybox.png"
+dest_files=["res://.godot/imported/Skybox.png-240c0cebf5daade44463998f65ecc57f.ctex"]
 
 [params]
 

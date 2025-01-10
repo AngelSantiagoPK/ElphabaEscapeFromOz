@@ -1,3 +1,15 @@
-GPUParticles2D
-PointLight2D
+ParallaxBackground
+Sprite2D
+ParallaxLayer
+Parallax2D
+Camera2D
+Label
+VBoxContainer
+NinePatchRect
+MarginContainer
+ProgressBar
+Panel
+AnimationPlayer
+CanvasLayer
 AnimatedSprite2D
+TextureRect

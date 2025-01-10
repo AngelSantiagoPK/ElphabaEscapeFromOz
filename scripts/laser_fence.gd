@@ -17,7 +17,7 @@ const LASER_NODE = preload("res://scenes/laser_node.tscn")
 @onready var collision_area: Area2D = %CollisionArea
 
 func _ready() -> void:
-	starting_pos = Vector2(640/2, 0)
+	starting_pos = Vector2(640, 0)
 	randomize()
 	reposition()
 
@@ -55,9 +55,9 @@ func choose_orientation() -> void:
 			# diagonal fence
 			x1 = starting_pos.x
 			y1 = rand_y
-			rand_y = randi_range(bot_limit, top_limit)
-			x2 = starting_pos.x + rand_length
-			y2 = rand_y
+			var rand_y_direction: int = randi_range(-1, 1)
+			x2 = x1 + rand_length
+			y2 = y1 + (rand_length * rand_y_direction)
 
 	NODES[0].global_position = Vector2(x1, y1)
 	NODES[1].global_position = Vector2(x2, y2)

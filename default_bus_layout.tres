@@ -1,10 +1,13 @@
-[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://dyvyubjeoaawe"]
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://dyvyubjeoaawe"]
 
 [sub_resource type="AudioEffectBandPassFilter" id="AudioEffectBandPassFilter_pxx10"]
 resource_name = "BandPassFilter"
 
 [sub_resource type="AudioEffectBandPassFilter" id="AudioEffectBandPassFilter_1b31n"]
 resource_name = "BandPassFilter"
+
+[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_bi24d"]
+resource_name = "EQ"
 
 [sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_vbefj"]
 resource_name = "Amplify"
@@ -18,7 +21,7 @@ bus/1/bypass_fx = false
 bus/1/volume_db = -8.00903
 bus/1/send = &"Master"
 bus/1/effect/0/effect = SubResource("AudioEffectBandPassFilter_pxx10")
-bus/1/effect/0/enabled = true
+bus/1/effect/0/enabled = false
 bus/2/name = &"SoundFX"
 bus/2/solo = false
 bus/2/mute = false
@@ -26,7 +29,9 @@ bus/2/bypass_fx = false
 bus/2/volume_db = 0.16725
 bus/2/send = &"Master"
 bus/2/effect/0/effect = SubResource("AudioEffectBandPassFilter_1b31n")
-bus/2/effect/0/enabled = true
+bus/2/effect/0/enabled = false
+bus/2/effect/1/effect = SubResource("AudioEffectEQ_bi24d")
+bus/2/effect/1/enabled = true
 bus/3/name = &"Wind"
 bus/3/solo = false
 bus/3/mute = false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpncu5bm0svk"
-path="res://.godot/imported/inner emerald castle.jpg-b8fda29dabc11fb87bd1cc1191866a7a.ctex"
+uid="uid://ddb661l0fvapy"
+path="res://.godot/imported/Emerald City.png-426b449a2be5826f080dc3cad74e1b59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/googletestimages/inner emerald castle.jpg"
-dest_files=["res://.godot/imported/inner emerald castle.jpg-b8fda29dabc11fb87bd1cc1191866a7a.ctex"]
+source_file="res://assets/Background Images/Emerald City.png"
+dest_files=["res://.godot/imported/Emerald City.png-426b449a2be5826f080dc3cad74e1b59.ctex"]
 
 [params]
 

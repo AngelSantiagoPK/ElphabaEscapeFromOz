@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cchjkwgyb2xj5"
-path="res://.godot/imported/Skybox.png-6d94bfdb42da019a205f27b4808c5ea8.ctex"
+uid="uid://8y7lbi2t5dof"
+path="res://.godot/imported/Solid_Road.png-2539fcf1a311f44ac4bce286036ee31a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Skybox.png"
-dest_files=["res://.godot/imported/Skybox.png-6d94bfdb42da019a205f27b4808c5ea8.ctex"]
+source_file="res://assets/Background Images/Solid_Road.png"
+dest_files=["res://.godot/imported/Solid_Road.png-2539fcf1a311f44ac4bce286036ee31a.ctex"]
 
 [params]
 

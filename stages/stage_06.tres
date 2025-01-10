@@ -6,7 +6,7 @@
 script = ExtResource("1_ypkjh")
 name = "Finally!"
 collectible_time = 3.0
-enemy_time = 999.0
-flying_enemy_time = 5.0
-fence_time = 3.0
+enemy_time = 5.0
+flying_enemy_time = 4.0
+fence_time = 1.0
 win_score = 99999
